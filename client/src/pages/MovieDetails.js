@@ -1,15 +1,14 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import MoviePoster from "../assets/images/11-avengers_1_orig.jpg";
 import stream01 from "../assets/logos/netflix.png";
 import stream02 from "../assets/logos/amazon-video.png";
 import stream03 from "../assets/logos/apple-tv-plus.png";
 import stream04 from "../assets/logos/crave.png";
+import MovieDetailsComments from "../components/MovieDetailsComments";
 
 const MovieDetails = () => {
   return (
     <>
-      <Navbar />
       <div className="movie-details">
         <div className="movie-details__container">
           <img className="movie-details__poster" src={MoviePoster} />
@@ -52,6 +51,7 @@ const MovieDetails = () => {
           </div>
         </div>
       </div>
+      <MovieDetailsComments />
     </>
   );
 };

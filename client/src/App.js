@@ -1,11 +1,10 @@
-import React from "react";
-import Navbar from "./components/Navbar";
+import React, { Component } from "react";
+import axios from "axios";
 import BackgroundImg from "./assets/images/background-image.jpg";
 
-function App() {
-  return (
-    <>
-      <Navbar />
+class App extends Component {
+  render() {
+    return (
       <div className="header">
         <img className="header__img" src={BackgroundImg} />
         <form className="header__form">
@@ -16,8 +15,8 @@ function App() {
           </div>
         </form>
       </div>
-    </>
-  );
+    );
+  }
 }
 
 export default App;

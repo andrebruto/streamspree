@@ -4,10 +4,12 @@
 @import "./partials/navbar";
 @import "./partials/header";
 @import "./partials/movieDetails";
+@import "./partials/movieDetailsComments";
 
 * {
   margin: 0;
   padding: 0;
+  font-family: "IBMPlexSans-Regular";
 }
 
 body {
