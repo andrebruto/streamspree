@@ -1,0 +1,21 @@
+@import "./partials/variables";
+@import "./partials/mixins";
+@import "./partials/fonts";
+@import "./partials/navbar";
+@import "./partials/header";
+@import "./partials/movieDetails";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
