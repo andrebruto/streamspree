@@ -1,0 +1,38 @@
+.results-item {
+  @include flex-column;
+  @include justify-align-center;
+  margin-right: 3rem;
+  margin-left: 2rem;
+  &__poster {
+    height: 350px;
+    border-radius: 10px;
+    &:hover {
+      box-shadow: 2px 2px 8px black;
+    }
+  }
+  &__movie-title {
+    font-family: "IBMPlexSans-Medium";
+    font-size: 1rem;
+    margin-top: 0.7rem;
+  }
+  &__container {
+    width: 220px;
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+  }
+  &__btn-playlist {
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: $eggshell;
+    border: 1px solid $light-green;
+    border-radius: 20px;
+  }
+  &__btn-details {
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: $yellow;
+    border-radius: 20px;
+  }
+}

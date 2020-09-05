@@ -91,13 +91,25 @@
 
 .navbar {
   background-color: #eeeeee;
-  height: 3.5rem;
-  padding: 1.5rem 0 0 8rem;
+  height: 8rem;
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  -webkit-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99999999;
 }
 
 .navbar__title {
   color: #303841;
   font-weight: 200;
+  margin: 2rem 0 0 8rem;
+}
+
+.header {
+  margin-top: 5rem;
 }
 
 .header__img {
@@ -350,6 +362,120 @@
   font-family: "IBMPlexSans-Light";
   font-size: 1.2rem;
   color: #3a4750;
+}
+
+.search-results {
+  background-color: #f6f6f6;
+  height: 550px;
+  width: 80%;
+  margin: 10rem 8rem;
+  border-radius: 20px;
+  -webkit-box-shadow: 4px 4px 50px black;
+          box-shadow: 4px 4px 50px black;
+  padding: 3rem;
+}
+
+.search-results__title {
+  margin-bottom: 2rem;
+  font-family: "IBMPlexSans-Thin";
+}
+
+.search-results__name {
+  font-family: "IBMPlexSans-Bold";
+}
+
+.search-results__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 1.7rem 0;
+  overflow-x: scroll;
+}
+
+.search-results__container::-webkit-scrollbar {
+  height: 20px;
+}
+
+.search-results__container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 5px grey;
+          box-shadow: inset 0 0 5px grey;
+  border-radius: 20px;
+}
+
+.search-results__container::-webkit-scrollbar-thumb {
+  background: #f6c90e;
+  border-radius: 10px;
+}
+
+.results-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 3rem;
+  margin-left: 2rem;
+}
+
+.results-item__poster {
+  height: 350px;
+  border-radius: 10px;
+}
+
+.results-item__poster:hover {
+  -webkit-box-shadow: 2px 2px 8px black;
+          box-shadow: 2px 2px 8px black;
+}
+
+.results-item__movie-title {
+  font-family: "IBMPlexSans-Medium";
+  font-size: 1rem;
+  margin-top: 0.7rem;
+}
+
+.results-item__container {
+  width: 220px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 1rem;
+}
+
+.results-item__btn-playlist {
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: #eeeeee;
+  border: 1px solid #3a4750;
+  border-radius: 20px;
+}
+
+.results-item__btn-details {
+  border: none;
+  padding: 0.5rem 1rem;
+  background-color: #f6c90e;
+  border-radius: 20px;
 }
 
 * {

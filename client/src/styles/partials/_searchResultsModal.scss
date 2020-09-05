@@ -1,0 +1,35 @@
+.search-results {
+  background-color: $white;
+  height: 550px;
+  //   width: 1400px;
+  width: 80%;
+  margin: 10rem 8rem;
+  border-radius: 20px;
+  box-shadow: 4px 4px 50px black;
+  padding: 3rem;
+
+  &__title {
+    margin-bottom: 2rem;
+    font-family: "IBMPlexSans-Thin";
+  }
+  &__name {
+    font-family: "IBMPlexSans-Bold";
+  }
+  &__container {
+    @include flex-row;
+    padding: 1.7rem 0;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+      height: 20px;
+    }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 20px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: $yellow;
+      border-radius: 10px;
+    }
+  }
+}
