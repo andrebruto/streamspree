@@ -1,15 +1,22 @@
 import React from "react";
+import CloseIcon from "../assets/icons/times-solid.svg";
 
 const ShareMovieModal = () => {
   return (
-    <div>
-      <h1>
-        Share <span>Movie</span> with your friends!
-      </h1>
-      <form>
-        <input type="text" name="" id="" />
-        <button>SHARE</button>
-      </form>
+    <div className="share-modal">
+      <div className="share-movie">
+        <div className="share-movie__container">
+          <h1 className="share-movie__title">
+            Share <span className="share-movie__title-name">Movie</span> with
+            your friends!
+          </h1>
+          <img className="share-movie__close-btn" src={CloseIcon} />
+        </div>
+        <form className="share-movie__form">
+          <input className="share-movie__input" type="text" name="" id="" />
+          <button className="share-movie__btn">SHARE</button>
+        </form>
+      </div>
     </div>
   );
 };

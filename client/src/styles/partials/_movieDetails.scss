@@ -1,15 +1,35 @@
 .movie-details {
   background-color: $white;
-  padding: 4rem 8rem;
+  padding: 14rem 8rem 10rem 8rem;
+
+  &__container {
+    @include flex-row;
+  }
+  &__subcontainer {
+    @include flex-column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 1rem;
+    margin-right: 4rem;
+  }
   &__poster {
     height: 400px;
     width: 280px;
-    margin-right: 4rem;
     border-radius: 10px;
     box-shadow: -6px 6px 8px #1b1b1b;
+    margin-bottom: 2rem;
   }
-  &__container {
-    @include flex-row;
+  &__share {
+    font-size: 0.85rem;
+    font-weight: 500;
+    width: 220px;
+    height: 2.5rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    color: $light-green;
+    background-color: $yellow;
+    border: none;
   }
   &__info {
     @include flex-column;
@@ -21,24 +41,51 @@
     font-size: 3rem;
     margin-bottom: 0.3rem;
   }
-  &__date {
+  &__year {
+    margin-bottom: 1.5rem;
+  }
+  &__data {
+    margin-bottom: 0.5rem;
+    &--bold {
+      font-family: "IBMPlexSans-Bold";
+      margin-right: 0.5rem;
+    }
+  }
+  &__description {
+    margin-top: 1.5rem;
+  }
+  &__ratings {
+    margin: 2rem 0;
+    padding-top: 1rem;
+    border-top: 1px solid lightgray;
+  }
+  &__ratings-container {
+    @include flex-row;
+    margin-left: 1rem;
+  }
+  &__ratings-source {
+    margin-right: 4rem;
+    @include flex-column;
+    @include justify-align-center;
+  }
+  &__ratings-img {
+    height: 30px;
     margin-bottom: 0.5rem;
   }
-  &__cast {
-    margin-bottom: 1rem;
-  }
   &__streaming {
-    margin-top: 4rem;
+    // margin-top: 4rem;
+    padding-top: 1rem;
+    border-top: 1px solid lightgray;
   }
-  &__streaming-title {
+  &__subtitle {
     font-size: 0.85rem;
     font-weight: 500;
     display: inline-block;
-    padding: 0.5rem 1rem;
+    // padding: 0.5rem 1rem;
     margin-bottom: 0.8rem;
     border-radius: 10px;
     color: $light-green;
-    background-color: $yellow;
+    // background-color: $yellow;
   }
   &__streaming-logos {
     @include flex-row;
@@ -48,6 +95,6 @@
   }
   &__streaming-service {
     width: 100px;
-    margin-right: 2rem;
+    margin-right: 4rem;
   }
 }

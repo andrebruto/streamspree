@@ -1,0 +1,46 @@
+.playlist-item {
+  @include flex-column;
+  @include justify-align-center;
+  margin-right: 3rem;
+  margin-bottom: 4rem;
+  &__poster {
+    height: 350px;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    &:hover {
+      box-shadow: 2px 2px 8px black;
+    }
+  }
+  &__movie-title {
+    font-family: "IBMPlexSans-SemiBold";
+    font-size: 1.2rem;
+  }
+  &__container {
+    @include flex-column;
+    margin-top: 1rem;
+  }
+  &__btn-remove {
+    width: 180px;
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: $eggshell;
+    border: 1px solid $light-green;
+    border-radius: 20px;
+  }
+  &__btn-details {
+    width: 180px;
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: $yellow;
+    border-radius: 20px;
+    margin: 1rem 0;
+  }
+  &__menu {
+    width: 180px;
+    border: none;
+    padding: 0.5rem 1rem;
+    background-color: $eggshell;
+    border: 1px solid $light-green;
+    border-radius: 20px;
+  }
+}
