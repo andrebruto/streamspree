@@ -9,7 +9,7 @@ class App extends Component {
       <div className="header">
         {/* <SearchResultsModal /> */}
         <img className="header__img" src={BackgroundImg} />
-        <form className="header__form" method="get">
+        <form className="header__form" onSubmit={searchMovies}>
           <h1 className="header__label">What do you want to watch today?</h1>
           <div className="header__container">
             <input className="header__input" type="text"></input>
