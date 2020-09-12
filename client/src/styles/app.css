@@ -89,9 +89,33 @@
   src: url("../assets/fonts/IBMPlexSans-BoldItalic.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  src: url("../assets/fonts/Poppins-ExtraBold.woff2") format("woff2"), url("../assets/fonts/Poppins-ExtraBold.woff") format("woff"), url("../assets/fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("../assets/fonts/Poppins-Light.woff2") format("woff2"), url("../assets/fonts/Poppins-Light.woff") format("woff"), url("../assets/fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("../assets/fonts/Poppins-Regular.woff2") format("woff2"), url("../assets/fonts/Poppins-Regular.woff") format("woff"), url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .navbar {
-  background-color: #eeeeee;
-  height: 8rem;
+  background-color: #fbfdff;
+  height: 6rem;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   -webkit-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
@@ -100,27 +124,6 @@
   width: 100%;
   top: 0;
   z-index: 99999999;
-}
-
-.navbar__title {
-  color: #303841;
-  font-weight: 200;
-  margin: 2rem 0 0 8rem;
-}
-
-.header {
-  margin-top: 5rem;
-}
-
-.header__img {
-  width: 100%;
-  height: 700px;
-  position: relative;
-  -webkit-filter: grayscale(30%);
-          filter: grayscale(30%);
-}
-
-.header__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -134,11 +137,109 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.navbar__logo {
+  width: 1.6rem;
+  margin-right: 1rem;
+  -webkit-filter: invert(64%) sepia(34%) saturate(8%) hue-rotate(319deg) brightness(98%) contrast(95%);
+          filter: invert(64%) sepia(34%) saturate(8%) hue-rotate(319deg) brightness(98%) contrast(95%);
+}
+
+.navbar__title {
+  color: #545050;
+  font-family: "Poppins-ExtraBold";
+  font-size: 1.3rem;
+}
+
+.navbar__title--light {
+  font-family: "Poppins-Light";
+}
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+  }
+  .navbar__logo {
+    margin-left: 6rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .navbar {
+    background-color: #fbfdff;
+    height: 8rem;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    -webkit-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99999999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .navbar__logo {
+    width: 30px;
+    margin-left: 8rem;
+    margin-right: 1rem;
+    -webkit-filter: invert(64%) sepia(34%) saturate(8%) hue-rotate(319deg) brightness(98%) contrast(95%);
+            filter: invert(64%) sepia(34%) saturate(8%) hue-rotate(319deg) brightness(98%) contrast(95%);
+  }
+  .navbar__title {
+    color: #545050;
+    font-family: "Poppins-ExtraBold";
+  }
+  .navbar__title--light {
+    font-family: "Poppins-Light";
+  }
+}
+
+.header {
+  margin-top: 3rem;
+}
+
+.header__img {
+  width: 100%;
+  height: 60vh;
+  position: relative;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-filter: grayscale(30%);
+          filter: grayscale(30%);
+}
+
+.header__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -600px;
-  margin-top: -180px;
+  width: 100vw;
+  top: 25%;
 }
 
 .header__container {
@@ -149,27 +250,28 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  margin-left: 3rem;
-  width: 510px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header__label {
-  font-size: 3.5rem;
-  font-weight: 800;
-  line-height: 4.5rem;
-  width: 500px;
-  color: #f6f6f6;
-  margin-right: 2rem;
+  font-family: "Poppins-ExtraBold";
+  font-size: 1.5rem;
+  text-shadow: 4px 4px 10px black;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #fafafa;
 }
 
 .header__input {
-  height: 3.5rem;
-  width: 500px;
-  background-color: #f6f6f6;
-  border: 2px solid #3a4750;
+  height: 3rem;
+  width: 80vw;
+  background-color: #fafafa;
+  border: none;
   border-radius: 30px;
   margin-bottom: 1rem;
   padding-left: 1rem;
@@ -178,29 +280,169 @@
 }
 
 .header__btn {
-  background-color: #f6c90e;
-  color: #3a4750;
+  font-family: "IBMPlexSans-Regular";
+  background-color: #ff3b3f;
+  color: #fafafa;
   font-size: 0.8rem;
   letter-spacing: 0.2rem;
   border: none;
-  width: 16rem;
-  height: 3.5rem;
+  width: 84vw;
+  height: 3rem;
   border-radius: 30px;
 }
 
+@media screen and (min-width: 768px) {
+  .header__img {
+    width: 100%;
+    height: 60vh;
+    -o-object-fit: cover;
+       object-fit: cover;
+    position: relative;
+    -webkit-filter: grayscale(30%);
+            filter: grayscale(30%);
+  }
+  .header__form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    width: 90%;
+    top: 25%;
+    left: 7%;
+  }
+  .header__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .header__label {
+    font-size: 1.8rem;
+    text-shadow: 4px 4px 10px black;
+    text-align: left;
+    color: #fafafa;
+    width: 50%;
+    margin-right: 2rem;
+  }
+  .header__input {
+    height: 2.2rem;
+    width: 90%;
+  }
+  .header__btn {
+    font-family: "IBMPlexSans-Bold";
+    background-color: #ff3b3f;
+    color: #fafafa;
+    font-size: 0.6rem;
+    letter-spacing: 0.2rem;
+    border: none;
+    width: 50%;
+    height: 2.2rem;
+    border-radius: 30px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    margin-top: 5rem;
+  }
+  .header__img {
+    width: 100%;
+    height: 80vh;
+    -o-object-fit: fill;
+       object-fit: fill;
+    position: relative;
+    -webkit-filter: grayscale(30%);
+            filter: grayscale(30%);
+  }
+  .header__form {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-top: 6rem;
+  }
+  .header__container {
+    margin-top: 1rem;
+    margin-right: 8rem;
+    width: 40%;
+  }
+  .header__label {
+    font-family: "Poppins-ExtraBold";
+    font-size: 3rem;
+    line-height: 4.5rem;
+    width: 40%;
+    color: #fafafa;
+    margin-right: 2rem;
+    margin-left: 4rem;
+  }
+  .header__input {
+    height: 3.5rem;
+    width: 90%;
+    background-color: #fafafa;
+    border: none;
+    border-radius: 30px;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    font-family: "IBMPlexSans-ExtraLight";
+    font-size: 1.7rem;
+  }
+  .header__btn {
+    font-family: "IBMPlexSans-Bold";
+    background-color: #ff3b3f;
+    color: #fafafa;
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+    border: none;
+    width: 50%;
+    height: 3.5rem;
+    border-radius: 30px;
+  }
+}
+
 .movie-details {
-  background-color: #f6f6f6;
-  padding: 14rem 8rem 10rem 8rem;
+  background-color: #efefef;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .movie-details__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 8rem;
 }
 
 .movie-details__subcontainer {
@@ -218,7 +460,6 @@
       -ms-flex-align: center;
           align-items: center;
   margin-top: 1rem;
-  margin-right: 4rem;
 }
 
 .movie-details__poster {
@@ -231,6 +472,7 @@
 }
 
 .movie-details__share {
+  font-family: "IBMPlexSans-Bold";
   font-size: 0.85rem;
   font-weight: 500;
   width: 220px;
@@ -238,8 +480,8 @@
   display: inline-block;
   padding: 0.5rem 1rem;
   border-radius: 20px;
-  color: #3a4750;
-  background-color: #f6c90e;
+  color: #fbfdff;
+  background-color: #ff3b3f;
   border: none;
 }
 
@@ -254,30 +496,45 @@
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
+  margin-top: 1.5rem;
+  width: 90%;
 }
 
 .movie-details__title {
-  font-family: "IBMPlexSans-Bold";
+  font-family: "Poppins-ExtraBold";
+  text-align: center;
   letter-spacing: -0.1rem;
-  font-size: 3rem;
-  margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+  color: #545050;
 }
 
 .movie-details__year {
+  font-size: 1rem;
+  text-align: center;
   margin-bottom: 1.5rem;
+  color: #7b7b7b;
 }
 
 .movie-details__data {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  line-height: 2rem;
 }
 
 .movie-details__data--bold {
-  font-family: "IBMPlexSans-Bold";
+  background-color: #caebf2;
+  font-family: "Poppins-ExtraBold";
+  color: #545050;
+  padding: 0.3rem 1rem;
   margin-right: 0.5rem;
 }
 
 .movie-details__description {
+  color: #222831;
+  text-align: justify;
   margin-top: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 2rem;
 }
 
 .movie-details__ratings {
@@ -294,11 +551,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  margin-left: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .movie-details__ratings-source {
-  margin-right: 4rem;
+  margin-right: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -315,7 +573,7 @@
 }
 
 .movie-details__ratings-img {
-  height: 30px;
+  height: 20px;
   margin-bottom: 0.5rem;
 }
 
@@ -330,7 +588,7 @@
   display: inline-block;
   margin-bottom: 0.8rem;
   border-radius: 10px;
-  color: #3a4750;
+  color: #545050;
 }
 
 .movie-details__streaming-logos {
@@ -341,27 +599,208 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-left: 1rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 2rem;
 }
 
 .movie-details__streaming-service {
-  width: 100px;
-  margin-right: 4rem;
+  width: 60px;
+  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .movie-details__title {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    font-family: "Poppins-ExtraBold";
+    font-size: 2.5rem;
+  }
+  .movie-details__year {
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .movie-details {
+    background-color: #efefef;
+    width: 100%;
+  }
+  .movie-details__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    margin-top: 10rem;
+    margin-left: 8rem;
+  }
+  .movie-details__subcontainer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-right: 4rem;
+  }
+  .movie-details__poster {
+    height: 400px;
+    width: 280px;
+    border-radius: 10px;
+    -webkit-box-shadow: -6px 6px 8px #1b1b1b;
+            box-shadow: -6px 6px 8px #1b1b1b;
+    margin-bottom: 2rem;
+  }
+  .movie-details__share {
+    font-family: "IBMPlexSans-Bold";
+    font-size: 0.85rem;
+    font-weight: 500;
+    width: 220px;
+    height: 2.5rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    color: #fbfdff;
+    background-color: #ff3b3f;
+    border: none;
+  }
+  .movie-details__info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    width: 50%;
+  }
+  .movie-details__title {
+    font-family: "Poppins-ExtraBold";
+    letter-spacing: -0.1rem;
+    font-size: 2.5rem;
+    color: #545050;
+  }
+  .movie-details__year {
+    margin-bottom: 1.5rem;
+    color: #7b7b7b;
+  }
+  .movie-details__data {
+    margin-bottom: 1rem;
+  }
+  .movie-details__data--bold {
+    background-color: #caebf2;
+    font-family: "Poppins-ExtraBold";
+    color: #545050;
+    padding: 0.3rem 1rem;
+    margin-right: 0.5rem;
+  }
+  .movie-details__description {
+    color: #222831;
+    margin-top: 1.5rem;
+    line-height: 2rem;
+  }
+  .movie-details__ratings {
+    margin: 2rem 0;
+    padding-top: 1rem;
+    border-top: 1px solid lightgray;
+  }
+  .movie-details__ratings-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin-left: 1rem;
+  }
+  .movie-details__ratings-source {
+    margin-right: 4rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .movie-details__ratings-img {
+    height: 30px;
+    margin-bottom: 0.5rem;
+  }
+  .movie-details__streaming {
+    padding-top: 1rem;
+    border-top: 1px solid lightgray;
+  }
+  .movie-details__subtitle {
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 0.8rem;
+    border-radius: 10px;
+    color: #545050;
+  }
+  .movie-details__streaming-logos {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-left: 1rem;
+  }
+  .movie-details__streaming-service {
+    width: 100px;
+    margin-right: 4rem;
+  }
 }
 
 .details-comments {
-  padding: 2.5rem 8rem;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  background-color: #fafafa;
+  padding: 3rem 1rem;
 }
 
 .details-comments__title {
-  font-family: "IBMPlexSans-Bold";
+  font-family: "Poppins-ExtraBold";
   margin-bottom: 1rem;
+  color: #545050;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .details-comments__form {
@@ -372,38 +811,58 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-bottom: 3rem;
-  border-bottom: 2px solid #eeeeee;
+  border-bottom: 2px solid #efefef;
 }
 
-.details-comments__input {
-  height: 3rem;
-  width: 800px;
+.details-comments__user {
+  height: 1rem;
+  width: 90%;
   margin-bottom: 1rem;
-  border: 2px solid #eeeeee;
+  border: 2px solid #efefef;
   border-radius: 10px;
   padding: 1rem;
   font-family: "IBMPlexSans-Light";
-  font-size: 1.2rem;
-  color: #3a4750;
+  font-size: 1rem;
+  color: #a9a9a9;
+}
+
+.details-comments__input {
+  height: 8rem;
+  width: 90%;
+  margin-bottom: 1rem;
+  border: 2px solid #efefef;
+  border-radius: 10px;
+  padding: 1rem;
+  font-family: "IBMPlexSans-Light";
+  font-size: 1rem;
+  color: #a9a9a9;
 }
 
 .details-comments__btn {
-  justify-self: flex-end;
+  font-family: "IBMPlexSans-Bold";
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: 90%;
   height: 2.5rem;
-  width: 200px;
+  display: inline-block;
+  padding: 0.5rem 1rem;
   border-radius: 20px;
-  background-color: #f6c90e;
+  color: #fbfdff;
+  background-color: #ff3b3f;
   border: none;
 }
 
 .details-comments__comment {
   margin-top: 2rem;
   padding-bottom: 2.5rem;
-  border-bottom: 2px solid #eeeeee;
+  border-bottom: 2px solid #efefef;
 }
 
 .details-comments__comment-container {
@@ -417,32 +876,134 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   margin-bottom: 1rem;
 }
 
 .details-comments__comment-username {
-  font-family: "IBMPlexSans-SemiBold";
-  font-size: 1.5rem;
+  font-family: "Poppins-Regular";
+  font-size: 1rem;
+  color: #222831;
 }
 
 .details-comments__comment-email {
   font-family: "IBMPlexSans-ExtraLight";
-  font-size: 1rem;
+  font-size: 0.8rem;
+  color: #7b7b7b;
 }
 
 .details-comments__comment-date {
-  font-family: "IBMPlexSans-Medium";
-  font-size: 1rem;
-  color: #3a4750;
+  font-family: "IBMPlexSans-Regular";
+  font-size: 0.75rem;
+  color: #a9a9a9;
 }
 
 .details-comments__comment-text {
   font-family: "IBMPlexSans-Light";
-  font-size: 1.2rem;
-  color: #3a4750;
+  font-size: 0.9rem;
+  line-height: 1.5rem;
+  color: #545050;
+  text-align: justify;
+}
+
+@media screen and (min-width: 768px) {
+  .details-comments__title {
+    text-align: left;
+    margin-left: 1.5rem;
+  }
+  .details-comments__btn {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-right: 1.5rem;
+    width: 30%;
+  }
+  .details-comments__comment {
+    padding: 0 2rem;
+  }
+  .details-comments__comment-username {
+    font-size: 1.16rem;
+  }
+  .details-comments__comment-email {
+    font-size: 1rem;
+  }
+  .details-comments__comment-date {
+    font-size: 1rem;
+  }
+  .details-comments__comment-text {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .details-comments {
+    padding: 2.5rem 8rem;
+  }
+  .details-comments__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #545050;
+    width: 90%;
+  }
+  .details-comments__form {
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding-bottom: 3rem;
+    border-bottom: 2px solid #efefef;
+  }
+  .details-comments__btn {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-right: 3rem;
+    height: 2.8rem;
+    width: 20%;
+  }
+  .details-comments__comment {
+    margin-top: 2rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 2px solid #efefef;
+  }
+  .details-comments__comment-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin-bottom: 1rem;
+  }
+  .details-comments__comment-username {
+    font-family: "Poppins-Regular";
+    font-size: 1.3rem;
+    color: #222831;
+  }
+  .details-comments__comment-email {
+    font-family: "IBMPlexSans-ExtraLight";
+    font-size: 1rem;
+    color: #7b7b7b;
+  }
+  .details-comments__comment-date {
+    font-family: "IBMPlexSans-Regular";
+    font-size: 1rem;
+    color: #a9a9a9;
+  }
+  .details-comments__comment-text {
+    font-family: "IBMPlexSans-Light";
+    font-size: 1.2rem;
+    color: #545050;
+  }
 }
 
 .search-modal {
@@ -458,7 +1019,7 @@
 }
 
 .search-results {
-  background-color: #f6f6f6;
+  background-color: #fafafa;
   height: 550px;
   width: 80%;
   margin: 6rem 8rem;
@@ -515,7 +1076,7 @@
 }
 
 .search-results__container::-webkit-scrollbar-thumb {
-  background: #f6c90e;
+  background: #ff3b3f;
   border-radius: 10px;
 }
 
@@ -574,15 +1135,15 @@
 .results-item__btn-playlist {
   border: none;
   padding: 0.5rem 1rem;
-  background-color: #eeeeee;
-  border: 1px solid #3a4750;
+  background-color: #efefef;
+  border: 1px solid #a9a9a9;
   border-radius: 20px;
 }
 
 .results-item__btn-details {
   border: none;
   padding: 0.5rem 1rem;
-  background-color: #f6c90e;
+  background-color: #ff3b3f;
   border-radius: 20px;
 }
 
@@ -599,7 +1160,7 @@
 }
 
 .share-movie {
-  background-color: #f6f6f6;
+  background-color: #fafafa;
   height: 25%;
   width: 80%;
   margin: 10rem 8rem;
@@ -638,16 +1199,16 @@
 .share-movie__input {
   width: 80%;
   height: 3.5rem;
-  background-color: #f6f6f6;
-  border: 2px solid #3a4750;
+  background-color: #fafafa;
+  border: 2px solid #a9a9a9;
   border-radius: 30px;
   margin-right: 2rem;
   margin-bottom: 1rem;
 }
 
 .share-movie__btn {
-  background-color: #f6c90e;
-  color: #3a4750;
+  background-color: #ff3b3f;
+  color: #a9a9a9;
   font-size: 1.2rem;
   letter-spacing: 0.2rem;
   border: none;
@@ -657,27 +1218,91 @@
 }
 
 .playlist {
-  background-color: #f6f6f6;
-  padding: 12rem 8rem 10rem 8rem;
+  background-color: #efefef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .playlist__title {
-  font-family: "IBMPlexSans-Bold";
+  font-family: "Poppins-ExtraBold";
   letter-spacing: -0.1rem;
-  font-size: 3rem;
-  margin-bottom: 3rem;
+  font-size: 2rem;
+  margin-top: 8rem;
+  color: #545050;
 }
 
 .playlist__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .playlist__title {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
+    margin-left: 4.5rem;
+  }
+  .playlist__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-left: 4.5rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .playlist__title {
+    margin-left: 8rem;
+    margin-top: 10rem;
+    font-size: 2.5rem;
+  }
+  .playlist__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
 }
 
 .playlist-item {
@@ -694,12 +1319,12 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 3rem;
-  margin-bottom: 4rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid #a9a9a9;
 }
 
 .playlist-item__poster {
-  height: 350px;
+  height: 17.5rem;
   border-radius: 10px;
   margin-bottom: 1rem;
 }
@@ -710,8 +1335,15 @@
 }
 
 .playlist-item__movie-title {
-  font-family: "IBMPlexSans-SemiBold";
+  font-family: "Poppins-ExtraBold";
   font-size: 1.2rem;
+  color: #545050;
+}
+
+.playlist-item__movie-subtitle {
+  font-family: "Poppins-Regular";
+  font-size: 0.9rem;
+  color: #7b7b7b;
 }
 
 .playlist-item__container {
@@ -726,30 +1358,52 @@
 }
 
 .playlist-item__btn-remove {
+  font-family: "IBMPlexSans-Bold";
   width: 180px;
   border: none;
   padding: 0.5rem 1rem;
-  background-color: #eeeeee;
-  border: 1px solid #3a4750;
+  background-color: #ff3b3f;
+  color: #fbfdff;
   border-radius: 20px;
 }
 
 .playlist-item__btn-details {
+  font-family: "IBMPlexSans-Bold";
   width: 180px;
   border: none;
   padding: 0.5rem 1rem;
-  background-color: #f6c90e;
+  background-color: #caebf2;
+  color: #545050;
   border-radius: 20px;
   margin: 1rem 0;
 }
 
 .playlist-item__menu {
+  font-family: "IBMPlexSans-Bold";
   width: 180px;
   border: none;
   padding: 0.5rem 1rem;
-  background-color: #eeeeee;
-  border: 1px solid #3a4750;
+  color: #fafafa;
+  background-color: #a9a9a9;
   border-radius: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .playlist-item {
+    margin-right: 2rem;
+    border-bottom: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .playlist-item {
+    margin-right: 3.5rem;
+    margin-bottom: 2rem;
+    border-bottom: none;
+  }
+  .playlist-item__poster {
+    height: 350px;
+  }
 }
 
 * {
@@ -767,6 +1421,7 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+  background-color: #efefef;
 }
 
 a {

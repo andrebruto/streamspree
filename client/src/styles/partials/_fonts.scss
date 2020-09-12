@@ -89,3 +89,33 @@
   src: url("../assets/fonts/IBMPlexSans-BoldItalic.woff") format("woff");
   src: url("../assets/fonts/IBMPlexSans-BoldItalic.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  src: url("../assets/fonts/Poppins-ExtraBold.woff2") format("woff2"),
+    url("../assets/fonts/Poppins-ExtraBold.woff") format("woff"),
+    url("../assets/fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Light";
+  src: url("../assets/fonts/Poppins-Light.woff2") format("woff2"),
+    url("../assets/fonts/Poppins-Light.woff") format("woff"),
+    url("../assets/fonts/Poppins-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("../assets/fonts/Poppins-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Poppins-Regular.woff") format("woff"),
+    url("../assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}

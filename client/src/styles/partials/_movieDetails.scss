@@ -1,16 +1,20 @@
 .movie-details {
-  background-color: $white;
-  padding: 14rem 8rem 10rem 8rem;
+  background-color: $neutral;
+  width: 100%;
+  @include flex-column;
+  @include justify-align-center;
+  // padding: 14rem 8rem 10rem 8rem;
 
   &__container {
-    @include flex-row;
+    @include flex-column;
+    @include justify-align-center;
+    margin-top: 8rem;
   }
   &__subcontainer {
     @include flex-column;
     justify-content: flex-start;
     align-items: center;
     margin-top: 1rem;
-    margin-right: 4rem;
   }
   &__poster {
     height: 400px;
@@ -20,6 +24,7 @@
     margin-bottom: 2rem;
   }
   &__share {
+    font-family: "IBMPlexSans-Bold";
     font-size: 0.85rem;
     font-weight: 500;
     width: 220px;
@@ -27,32 +32,48 @@
     display: inline-block;
     padding: 0.5rem 1rem;
     border-radius: 20px;
-    color: $light-green;
-    background-color: $yellow;
+    color: $off-white;
+    background-color: $watermelon;
     border: none;
   }
   &__info {
     @include flex-column;
     justify-content: flex-start;
+    margin-top: 1.5rem;
+    width: 90%;
   }
   &__title {
-    font-family: "IBMPlexSans-Bold";
+    font-family: "Poppins-ExtraBold";
+    text-align: center;
     letter-spacing: -0.1rem;
-    font-size: 3rem;
-    margin-bottom: 0.3rem;
+    font-size: 1.5rem;
+    color: $dark-carbon;
   }
   &__year {
+    font-size: 1rem;
+    text-align: center;
     margin-bottom: 1.5rem;
+    color: $medium-carbon;
   }
   &__data {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    line-height: 2rem;
     &--bold {
-      font-family: "IBMPlexSans-Bold";
+      background-color: $sky;
+      font-family: "Poppins-ExtraBold";
+      color: $dark-carbon;
+      padding: 0.3rem 1rem;
       margin-right: 0.5rem;
     }
   }
   &__description {
+    color: $black;
+    text-align: justify;
     margin-top: 1.5rem;
+    font-size: 0.9rem;
+    line-height: 2rem;
+    // width: 320px;
   }
   &__ratings {
     margin: 2rem 0;
@@ -61,15 +82,15 @@
   }
   &__ratings-container {
     @include flex-row;
-    margin-left: 1rem;
+    flex-wrap: wrap;
   }
   &__ratings-source {
-    margin-right: 4rem;
+    margin-right: 1.5rem;
     @include flex-column;
     @include justify-align-center;
   }
   &__ratings-img {
-    height: 30px;
+    height: 20px;
     margin-bottom: 0.5rem;
   }
   &__streaming {
@@ -84,17 +105,144 @@
     // padding: 0.5rem 1rem;
     margin-bottom: 0.8rem;
     border-radius: 10px;
-    color: $light-green;
-    // background-color: $yellow;
+    color: $dark-carbon;
+    // background-color: $watermelon;
   }
   &__streaming-logos {
     @include flex-row;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
   }
   &__streaming-service {
-    width: 100px;
-    margin-right: 4rem;
+    width: 60px;
+    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@include tablet {
+  .movie-details {
+    &__title {
+      align-self: flex-start;
+      font-family: "Poppins-ExtraBold";
+      font-size: 2.5rem;
+    }
+    &__year {
+      text-align: left;
+    }
+  }
+}
+
+@include desktop {
+  .movie-details {
+    background-color: $neutral;
+    width: 100%;
+    &__container {
+      @include flex-row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-top: 10rem;
+      margin-left: 8rem;
+    }
+    &__subcontainer {
+      @include flex-column;
+      justify-content: flex-start;
+      align-items: center;
+      // margin-top: 1rem;
+      margin-right: 4rem;
+    }
+    &__poster {
+      height: 400px;
+      width: 280px;
+      border-radius: 10px;
+      box-shadow: -6px 6px 8px #1b1b1b;
+      margin-bottom: 2rem;
+    }
+    &__share {
+      font-family: "IBMPlexSans-Bold";
+      font-size: 0.85rem;
+      font-weight: 500;
+      width: 220px;
+      height: 2.5rem;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      color: $off-white;
+      background-color: $watermelon;
+      border: none;
+    }
+    &__info {
+      @include flex-column;
+      justify-content: flex-start;
+      width: 50%;
+    }
+    &__title {
+      font-family: "Poppins-ExtraBold";
+      letter-spacing: -0.1rem;
+      font-size: 2.5rem;
+      color: $dark-carbon;
+    }
+    &__year {
+      margin-bottom: 1.5rem;
+      color: $medium-carbon;
+    }
+    &__data {
+      margin-bottom: 1rem;
+      &--bold {
+        background-color: $sky;
+        font-family: "Poppins-ExtraBold";
+        color: $dark-carbon;
+        padding: 0.3rem 1rem;
+        margin-right: 0.5rem;
+      }
+    }
+    &__description {
+      color: $black;
+      margin-top: 1.5rem;
+      line-height: 2rem;
+    }
+    &__ratings {
+      margin: 2rem 0;
+      padding-top: 1rem;
+      border-top: 1px solid lightgray;
+    }
+    &__ratings-container {
+      @include flex-row;
+      margin-left: 1rem;
+    }
+    &__ratings-source {
+      margin-right: 4rem;
+      @include flex-column;
+      @include justify-align-center;
+    }
+    &__ratings-img {
+      height: 30px;
+      margin-bottom: 0.5rem;
+    }
+    &__streaming {
+      // margin-top: 4rem;
+      padding-top: 1rem;
+      border-top: 1px solid lightgray;
+    }
+    &__subtitle {
+      font-size: 0.85rem;
+      font-weight: 500;
+      display: inline-block;
+      // padding: 0.5rem 1rem;
+      margin-bottom: 0.8rem;
+      border-radius: 10px;
+      color: $dark-carbon;
+      // background-color: $watermelon;
+    }
+    &__streaming-logos {
+      @include flex-row;
+      justify-content: flex-start;
+      align-items: center;
+      margin-left: 1rem;
+    }
+    &__streaming-service {
+      width: 100px;
+      margin-right: 4rem;
+    }
   }
 }

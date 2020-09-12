@@ -1,61 +1,174 @@
 .details-comments {
-  padding: 2.5rem 8rem;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  background-color: $white;
+  padding: 3rem 1rem;
+
   &__title {
-    font-family: "IBMPlexSans-Bold";
+    font-family: "Poppins-ExtraBold";
     margin-bottom: 1rem;
+    color: $dark-carbon;
+    font-size: 1.5rem;
+    text-align: center;
   }
   &__form {
     @include flex-column;
-    justify-content: flex-start;
+    @include justify-align-center;
     padding-bottom: 3rem;
-    border-bottom: 2px solid $eggshell;
+    border-bottom: 2px solid $neutral;
   }
-  &__input {
-    height: 3rem;
-    width: 800px;
+  &__user {
+    height: 1rem;
+    width: 90%;
     margin-bottom: 1rem;
-    border: 2px solid $eggshell;
+    border: 2px solid $neutral;
     border-radius: 10px;
     padding: 1rem;
     font-family: "IBMPlexSans-Light";
-    font-size: 1.2rem;
-    color: $light-green;
+    font-size: 1rem;
+    color: $carbon;
+  }
+  &__input {
+    height: 8rem;
+    width: 90%;
+    margin-bottom: 1rem;
+    border: 2px solid $neutral;
+    border-radius: 10px;
+    padding: 1rem;
+    font-family: "IBMPlexSans-Light";
+    font-size: 1rem;
+    color: $carbon;
   }
   &__btn {
-    justify-self: flex-end;
+    font-family: "IBMPlexSans-Bold";
+    font-size: 0.85rem;
+    font-weight: 500;
+    width: 90%;
     height: 2.5rem;
-    width: 200px;
+    display: inline-block;
+    padding: 0.5rem 1rem;
     border-radius: 20px;
-    background-color: $yellow;
+    color: $off-white;
+    background-color: $watermelon;
     border: none;
   }
   &__comment {
     margin-top: 2rem;
     padding-bottom: 2.5rem;
-    border-bottom: 2px solid $eggshell;
+    border-bottom: 2px solid $neutral;
   }
   &__comment-container {
     @include flex-row;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 1rem;
   }
   &__comment-username {
-    font-family: "IBMPlexSans-SemiBold";
-    font-size: 1.5rem;
+    font-family: "Poppins-Regular";
+    font-size: 1rem;
+    color: $black;
   }
   &__comment-email {
     font-family: "IBMPlexSans-ExtraLight";
-    font-size: 1rem;
+    font-size: 0.8rem;
+    color: $medium-carbon;
   }
   &__comment-date {
-    font-family: "IBMPlexSans-Medium";
-    font-size: 1rem;
-    color: $light-green;
+    font-family: "IBMPlexSans-Regular";
+    font-size: 0.75rem;
+    color: $carbon;
   }
   &__comment-text {
     font-family: "IBMPlexSans-Light";
-    font-size: 1.2rem;
-    color: $light-green;
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+    color: $dark-carbon;
+    text-align: justify;
+  }
+}
+
+@include tablet {
+  .details-comments {
+    &__title {
+      text-align: left;
+      margin-left: 1.5rem;
+    }
+    &__btn {
+      align-self: flex-end;
+      margin-right: 1.5rem;
+      width: 30%;
+    }
+
+    &__comment {
+      padding: 0 2rem;
+    }
+    &__comment-username {
+      font-size: 1.16rem;
+    }
+    &__comment-email {
+      font-size: 1rem;
+    }
+    &__comment-date {
+      font-size: 1rem;
+    }
+    &__comment-text {
+      font-size: 1rem;
+    }
+  }
+}
+
+@include desktop {
+  .details-comments {
+    padding: 2.5rem 8rem;
+    &__title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: $dark-carbon;
+      width: 90%;
+    }
+    &__form {
+      justify-content: flex-start;
+      align-items: center;
+
+      padding-bottom: 3rem;
+      border-bottom: 2px solid $neutral;
+    }
+    &__btn {
+      align-self: flex-end;
+      margin-right: 3rem;
+      height: 2.8rem;
+      width: 20%;
+    }
+    &__comment {
+      margin-top: 2rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 2px solid $neutral;
+    }
+    &__comment-container {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    &__comment-username {
+      font-family: "Poppins-Regular";
+      font-size: 1.3rem;
+      color: $black;
+    }
+    &__comment-email {
+      font-family: "IBMPlexSans-ExtraLight";
+      font-size: 1rem;
+      color: $medium-carbon;
+    }
+    &__comment-date {
+      font-family: "IBMPlexSans-Regular";
+      font-size: 1rem;
+      color: $carbon;
+    }
+    &__comment-text {
+      font-family: "IBMPlexSans-Light";
+      font-size: 1.2rem;
+      color: $dark-carbon;
+    }
   }
 }

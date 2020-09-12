@@ -4,7 +4,7 @@ import PlaylistItem from "../components/PlaylistItem.jsx";
 const Playlist = () => {
   return (
     <div className="playlist">
-      <h1 className="playlist__title">Playlist</h1>
+      <h1 className="playlist__title">PLAYLIST</h1>
       <div className="playlist__container">
         <PlaylistItem />
         <PlaylistItem />

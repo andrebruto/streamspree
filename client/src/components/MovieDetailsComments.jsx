@@ -5,6 +5,16 @@ const MovieDetailsComments = () => {
     <div className="details-comments">
       <h1 className="details-comments__title">Comments:</h1>
       <form className="details-comments__form" action="" method="post">
+        <input
+          className="details-comments__user"
+          name="message"
+          placeholder="Name"
+        ></input>
+        <input
+          className="details-comments__user"
+          name="message"
+          placeholder="Email"
+        ></input>
         <textarea
           className="details-comments__input"
           name="message"

@@ -1,6 +1,6 @@
 .navbar {
-  background-color: $eggshell;
-  height: 8rem;
+  background-color: $off-white;
+  height: 6rem;
   // padding: 2rem 0 0 8rem;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
@@ -9,9 +9,65 @@
   width: 100%;
   top: 0;
   z-index: 99999999;
+  @include flex-row;
+  justify-content: center;
+  align-items: center;
+  &__logo {
+    width: 1.6rem;
+    // margin-left: 8rem;
+    margin-right: 1rem;
+    filter: invert(64%) sepia(34%) saturate(8%) hue-rotate(319deg)
+      brightness(98%) contrast(95%);
+  }
   &__title {
-    color: $dark-green;
-    font-weight: 200;
-    margin: 2rem 0 0 8rem;
+    color: $dark-carbon;
+    font-family: "Poppins-ExtraBold";
+    font-size: 1.3rem;
+
+    &--light {
+      font-family: "Poppins-Light";
+    }
+  }
+}
+
+@include tablet {
+  .navbar {
+    justify-content: flex-start;
+    &__logo {
+      margin-left: 6rem;
+    }
+  }
+}
+
+@include desktop {
+  .navbar {
+    background-color: $off-white;
+    height: 8rem;
+    // padding: 2rem 0 0 8rem;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 4px 4px 8px rgba($color: #000000, $alpha: 0.2);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99999999;
+    @include flex-row;
+    justify-content: flex-start;
+    align-items: center;
+    &__logo {
+      width: 30px;
+      margin-left: 8rem;
+      margin-right: 1rem;
+      filter: invert(64%) sepia(34%) saturate(8%) hue-rotate(319deg)
+        brightness(98%) contrast(95%);
+    }
+    &__title {
+      color: $dark-carbon;
+      font-family: "Poppins-ExtraBold";
+
+      &--light {
+        font-family: "Poppins-Light";
+      }
+    }
   }
 }
