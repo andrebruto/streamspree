@@ -9,12 +9,13 @@ const SearchResultsModal = ({ movies, match }) => {
   ));
 
   return (
-    <div className="search-modal">
+    <div
+      className={movies.length === 0 ? `search-modal` : `search-modal__visible`}
+    >
       <div className="search-results">
         <div className="search-results__title-container">
           <h1 className="search-results__title">
-            Results for{" "}
-            <span className="search-results__name">"Placeholder"</span>
+            Results for <span className="search-results__name">"{match}"</span>
           </h1>
           <img className="share-movie__close-btn" src={CloseIcon} />
         </div>

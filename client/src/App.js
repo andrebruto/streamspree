@@ -15,47 +15,29 @@ class App extends Component {
     movies: [],
     movieDetails: {},
     error: "",
-  };
-
-  componentDidMount() {
-    sessionStorage.setItem("defaultSearch", "money");
-    axios
-      .get(searchByMovieTitle(sessionStorage.getItem("defaultSearch")))
-      .then((response) =>
-        this.setState(
-          {
-            movies: response.data,
-          }
-
-          // () => this.searchMovieByImdbID(this.state.movies[0].imdbID);
-        )
-      );
-  }
-
-  searchMovieByImdbID = (imdbID) => {
-    axios.get(searchByMovieID(imdbID)).then((response) =>
-      this.setState({
-        movieDetails: response.data,
-      })
-    );
+    searchText: "",
   };
 
   searchMovies = (event) => {
     event.preventDefault();
-    axios
-      .get(searchByMovieTitle(event.target.searchMovieInput.value))
-      .then((response) =>
-        this.setState({
-          movies: response.data,
-        })
-      );
+    const inputText = event.target.searchMovieInput.value;
+    axios.get(searchByMovieTitle(inputText)).then((response) =>
+      this.setState({
+        movies: response.data,
+        searchText: inputText,
+      })
+    );
   };
 
   render() {
     return (
       <>
         <Header searchMovies={this.searchMovies} />
-        <SearchResultsModal {...this.props} movies={this.state.movies} />
+        <SearchResultsModal
+          {...this.props}
+          movies={this.state.movies}
+          match={this.state.searchText}
+        />
       </>
     );
   }

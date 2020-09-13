@@ -14,7 +14,7 @@ ReactDOM.render(
       <Navbar />
       <Switch>
         <Route path="/" component={App} exact />
-        <Route path="/details/" component={MovieDetails} exact />
+        <Route path="/movie/details/:id" component={MovieDetails} exact />
         <Route path="/playlist/" component={Playlist} exact />
       </Switch>
     </React.StrictMode>
