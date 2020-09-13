@@ -13,6 +13,7 @@ import MetacriticLogo from "../assets/logos/metacritic.png";
 
 const BASE_URL = "http://localhost:5000";
 const searchByMovieID = (movieID) => `${BASE_URL}/movies/${movieID}/details`;
+const movieCommentsURL = (movieID) => `${BASE_URL}/movies/${movieID}/comments`;
 
 class MovieDetails extends Component {
   constructor(props) {
@@ -29,13 +30,23 @@ class MovieDetails extends Component {
     metaRatings: "",
     error: "",
     movieID: "",
+    comments: [],
   };
 
   movieID;
 
   componentDidMount() {
     this.searchMovieByID(this.movieID);
+    this.getComments(this.movieID);
   }
+
+  getComments = (movieID) => {
+    axios.get(movieCommentsURL(movieID)).then((response) =>
+      this.setState({
+        comments: response.data,
+      })
+    );
+  };
 
   searchMovieByID = (movieID) => {
     axios.get(searchByMovieID(movieID)).then((response) =>
@@ -46,6 +57,28 @@ class MovieDetails extends Component {
         metaRatings: response.data.ratings[2].Value,
       })
     );
+  };
+
+  postComment = (e) => {
+    e.preventDefault();
+    const commentValue = e.target.message.value;
+    const nameValue = e.target.name.value;
+    if (commentValue.trim(" ") === "" && nameValue.trim(" ") === "") {
+      this.setState({ error: "You must fill all fields." });
+      return;
+    }
+    this.setState({ error: "" });
+    axios
+      .post(movieCommentsURL(this.movieID), {
+        name: nameValue,
+        comment: commentValue,
+      })
+      .then((response) => {
+        this.setState({
+          comments: [response.data, ...this.state.comments],
+        });
+      });
+    e.target.reset();
   };
 
   render() {
@@ -146,7 +179,10 @@ class MovieDetails extends Component {
               </div>
             </div>
           </div>
-          <MovieDetailsComments />
+          <MovieDetailsComments
+            postComment={this.postComment}
+            comments={this.state.comments}
+          />
         </>
       );
     }

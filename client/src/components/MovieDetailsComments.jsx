@@ -1,20 +1,16 @@
 import React from "react";
 
-const MovieDetailsComments = () => {
+const MovieDetailsComments = ({ comments, postComment }) => {
   return (
     <div className="details-comments">
       <h1 className="details-comments__title">Comments:</h1>
-      <form className="details-comments__form" action="" method="post">
+      <form className="details-comments__form" onSubmit={postComment}>
         <input
           className="details-comments__user"
-          name="message"
+          name="name"
           placeholder="Name"
         ></input>
-        <input
-          className="details-comments__user"
-          name="message"
-          placeholder="Email"
-        ></input>
+
         <textarea
           className="details-comments__input"
           name="message"
@@ -24,22 +20,23 @@ const MovieDetailsComments = () => {
           COMMENT
         </button>
       </form>
-      <div className="details-comments__comment">
-        <div className="details-comments__comment-container">
-          <div className="details-comments__comment-titleBlock">
-            <h5 className="details-comments__comment-username">Name</h5>
-            <h6 className="details-comments__comment-email">email@email.com</h6>
+      {comments.map((comment) => {
+        return (
+          <div key={comment.id} className="details-comments__comment">
+            <div className="details-comments__comment-container">
+              <div className="details-comments__comment-titleBlock">
+                <h5 className="details-comments__comment-username">
+                  {comment.name}
+                </h5>
+              </div>
+              <p className="details-comments__comment-date">
+                {comment.created_at}
+              </p>
+            </div>
+            <p className="details-comments__comment-text">{comment.comment}</p>
           </div>
-          <p className="details-comments__comment-date">09/18/2020</p>
-        </div>
-        <p className="details-comments__comment-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas
-          integer eget aliquet nibh praesent. Lacus vestibulum sed arcu non odio
-          euismod lacinia at quis. Amet aliquam id diam maecenas. Lacus sed
-          viverra tellus in.
-        </p>
-      </div>
+        );
+      })}
     </div>
   );
 };

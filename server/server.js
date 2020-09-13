@@ -85,14 +85,14 @@ app.get("/movies/:id/details", async (req, res) => {
 app.get("/movies/:id/comments", async (req, res) => {
   const movieID = req.params.id;
   const [results] = await knex.raw(
-    "select * from comments where movie_id = ?",
+    "select * from comments where movie_id = ? order by created_at desc",
     movieID
   );
-  console.log(results);
+  // console.log(results);
   res.json(results);
 });
 
-app.post("/movies/:id/comment", async (req, res) => {
+app.post("/movies/:id/comments", async (req, res) => {
   const { id: movie_id } = req.params;
   const { name, comment } = req.body;
   const [
@@ -106,7 +106,7 @@ app.post("/movies/:id/comment", async (req, res) => {
     "select * from comments where id = ? limit 1;",
     results.insertId
   );
-  res.status(201).json(newComment);
+  res.status(201).json(newComment[0]);
 });
 
 app.post("/playlists/:id/movies/:movieID", async (req, res) => {
