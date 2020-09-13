@@ -92,6 +92,70 @@ app.get("/movies/:id/comments", async (req, res) => {
   res.json(results);
 });
 
+app.post("/movies/:id/comment", async (req, res) => {
+  const { id: movie_id } = req.params;
+  const { name, comment } = req.body;
+  const [
+    results,
+  ] = await knex.raw(
+    "insert into comments(comment, name, movie_id) values (:comment, :name, :movie_id);",
+    { name, comment, movie_id }
+  );
+
+  const [newComment] = await knex.raw(
+    "select * from comments where id = ? limit 1;",
+    results.insertId
+  );
+  res.status(201).json(newComment);
+});
+
+app.post("/playlists/:id/movies/:movieID", async (req, res) => {
+  const { id, movieID: movie_id } = req.params;
+  try {
+    await knex.raw(
+      "insert into playlists_movies (playlist_id, movie_id) values (:id, :movie_id);",
+      { id, movie_id }
+    );
+    res.status(201).json({ message: `${movie_id} added to playlist` });
+    return;
+  } catch (e) {
+    res.status(500).json({ err: e });
+  }
+});
+
+app.delete("/playlists/:id/movies/:movieID", async (req, res) => {
+  const { id, movieID: movie_id } = req.params;
+  try {
+    await knex.raw(
+      "delete from playlists_movies where playlist_id = :id and movie_id = :movie_id;",
+      { id, movie_id }
+    );
+    res.status(200).json({ message: `${movie_id} deleted from playlist` });
+    return;
+  } catch (e) {
+    res.status(500).json({ err: e });
+  }
+});
+
+app.get("/playlists/:id/movies", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const [results] = await knex.raw(
+      `select 
+        playlists_movies.movie_id 
+      from playlists
+        inner join playlists_movies on playlists_movies.playlist_id = playlists.id
+      where playlists.id = ?`,
+      id
+    );
+    res.status(200).json({ movies: results });
+    return;
+  } catch (e) {
+    res.status(500).json({ err: e });
+  }
+});
+
 app.get("/", (req, res) => {
   res.send("Express is running!");
 });
