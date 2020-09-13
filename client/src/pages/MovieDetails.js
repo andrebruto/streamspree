@@ -10,6 +10,7 @@ import MovieDetailsComments from "../components/MovieDetailsComments";
 import IMDBLogo from "../assets/logos/imdb.png";
 import RottenTomatoesLogo from "../assets/logos/rotten-tomatoes.png";
 import MetacriticLogo from "../assets/logos/metacritic.png";
+import AddToPlaylist from "../components/AddToPlaylist";
 
 const BASE_URL = "http://localhost:5000";
 const searchByMovieID = (movieID) => `${BASE_URL}/movies/${movieID}/details`;
@@ -95,6 +96,7 @@ class MovieDetails extends Component {
                   src={this.state.movieDetails.poster}
                 />
                 <button className="movie-details__share">SHARE</button>
+                <AddToPlaylist movieID={this.movieID} />
               </div>
               <div className="movie-details__info">
                 <h2 className="movie-details__title">

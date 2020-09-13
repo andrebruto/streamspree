@@ -156,6 +156,29 @@ app.get("/playlists/:id/movies", async (req, res) => {
   }
 });
 
+app.get("/playlists/:id/movies/:movieID", async (req, res) => {
+  const { id, movieID } = req.params;
+
+  try {
+    const [results] = await knex.raw(
+      `select 
+        playlists_movies.movie_id 
+      from playlists
+        inner join playlists_movies on playlists_movies.playlist_id = playlists.id
+      where playlists.id = :id
+       and playlists_movies.movie_id = :movieID
+       limit 1`,
+      { id, movieID }
+    );
+
+    res.status(200).json({ movies: results });
+
+    return;
+  } catch (e) {
+    res.status(500).json(e);
+  }
+});
+
 app.get("/", (req, res) => {
   res.send("Express is running!");
 });

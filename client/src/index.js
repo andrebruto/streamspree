@@ -15,7 +15,7 @@ ReactDOM.render(
       <Switch>
         <Route path="/" component={App} exact />
         <Route path="/movie/details/:id" component={MovieDetails} exact />
-        <Route path="/playlist/" component={Playlist} exact />
+        <Route path="/playlist/1" component={Playlist} exact />
       </Switch>
     </React.StrictMode>
   </BrowserRouter>,

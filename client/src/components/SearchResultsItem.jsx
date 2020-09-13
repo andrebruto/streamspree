@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import MovieDetails from "../pages/MovieDetails";
+import AddToPlaylist from "../components/AddToPlaylist";
 
 class SearchResultsItem extends Component {
   render() {
@@ -11,7 +11,7 @@ class SearchResultsItem extends Component {
 
         <div>
           <div className="results-item__container">
-            <button className="results-item__btn-playlist">+ PLAYLIST</button>
+            <AddToPlaylist movieID={imdbID} />
             <Link to={`/movie/details/${imdbID}`}>
               <button className="results-item__btn-details">+ DETAILS</button>
             </Link>
