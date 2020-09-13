@@ -4,6 +4,7 @@ const axios = require("axios");
 const fs = require("fs").promises;
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const knex = require("./config/knex.js");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -42,7 +43,11 @@ const getMoviesByID = async (movieID) => {
 app.get("/movies/:title", async (req, res) => {
   const searchTerm = req.params.title;
   const moviesByTitle = await getMoviesByTitle(searchTerm);
-  console.log(moviesByTitle);
+  // console.log(moviesByTitle);
+  if (!moviesByTitle) {
+    res.status(404).json({ message: `Movie not found` });
+    return;
+  }
   const movies = moviesByTitle.Search.map((result) => {
     return {
       imdbID: result.imdbID,
@@ -54,10 +59,14 @@ app.get("/movies/:title", async (req, res) => {
   res.json(movies);
 });
 
-app.get("/movies/details/:id", async (req, res) => {
+app.get("/movies/:id/details", async (req, res) => {
   const movieID = req.params.id;
   const moviesByID = await getMoviesByID(movieID);
-  console.log(moviesByID);
+  // console.log(moviesByID);
+  if (!moviesByID) {
+    res.status(404).json({ message: `Movie not found` });
+    return;
+  }
   const movie = {
     imdbID: moviesByID.imdbID,
     title: moviesByID.Title,
@@ -68,45 +77,20 @@ app.get("/movies/details/:id", async (req, res) => {
     director: moviesByID.Director,
     plot: moviesByID.Plot,
     ratings: moviesByID.Ratings,
+    runtime: moviesByID.Runtime,
   };
-
   res.json(movie);
 });
 
-// const urlwithID = "http://www.omdbapi.com/?apikey=dda5319&i=tt4154756";
-
-// let db;
-
-// const getMovieById = async (urlwithID) => {
-//   try {
-//     const response = await axios.get(urlwithID);
-//     const data = response.data;
-//     console.log(data);
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
-
-// getMovieById(urlwithID);
-
-// axios.get("http://www.omdbapi.com/?apikey=dda5319&s=", {
-//   params: {
-//     q: "axios",
-//   },
-// });
-
-// app.get("/movies", (req, res) => {
-//   const searchTerm = req.query.search;
-//   const url = `http://www.omdbapi.com/?apikey=dda5319&s=${searchTerm}`;
-//   axios
-//     .get(url)
-//     .then((res) => {
-//       // console.log(res.data.Search);
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// });
+app.get("/movies/:id/comments", async (req, res) => {
+  const movieID = req.params.id;
+  const [results] = await knex.raw(
+    "select * from comments where movie_id = ?",
+    movieID
+  );
+  console.log(results);
+  res.json(results);
+});
 
 app.get("/", (req, res) => {
   res.send("Express is running!");
