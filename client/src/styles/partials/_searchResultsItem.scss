@@ -11,10 +11,14 @@
     }
   }
   &__movie-title {
-    font-family: "IBMPlexSans-Medium";
+    font-family: "Poppins-Regular";
+    color: $dark-carbon;
     font-size: 1rem;
-    margin-top: 0.7rem;
+    text-align: center;
+    margin-top: 1rem;
+    height: 3.5rem;
   }
+
   &__container {
     width: 220px;
     @include flex-row;
@@ -25,14 +29,18 @@
   &__btn-playlist {
     border: none;
     padding: 0.5rem 1rem;
-    background-color: $neutral;
-    border: 1px solid $carbon;
+    background-color: $sky;
+    color: $dark-carbon;
+    // border: 1px solid $carbon;
+    font-family: "IBMPlexSans-Bold";
     border-radius: 20px;
   }
   &__btn-details {
     border: none;
     padding: 0.5rem 1rem;
     background-color: $watermelon;
+    color: $off-white;
+    font-family: "IBMPlexSans-Bold";
     border-radius: 20px;
   }
 }

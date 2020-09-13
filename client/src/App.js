@@ -1,24 +1,62 @@
 import React, { Component } from "react";
 import axios from "axios";
-import BackgroundImg from "./assets/images/background-image.jpg";
+import Header from "./components/Header";
+
 import SearchResultsModal from "./components/SearchResultsModal";
 
+const BASE_URL = "http://localhost:5000";
+
+const searchByMovieTitle = (searchKeyword) =>
+  `${BASE_URL}/movies/${searchKeyword}`;
+const searchByMovieID = (imdbID) => `${BASE_URL}/movies/details/${imdbID}`;
+
 class App extends Component {
+  state = {
+    movies: [],
+    movieDetails: {},
+    error: "",
+  };
+
+  componentDidMount() {
+    sessionStorage.setItem("defaultSearch", "money");
+    axios
+      .get(searchByMovieTitle(sessionStorage.getItem("defaultSearch")))
+      .then((response) =>
+        this.setState(
+          {
+            movies: response.data,
+          }
+
+          // () => this.searchMovieByImdbID(this.state.movies[0].imdbID);
+        )
+      );
+  }
+
+  searchMovieByImdbID = (imdbID) => {
+    axios.get(searchByMovieID(imdbID)).then((response) =>
+      this.setState({
+        movieDetails: response.data,
+      })
+    );
+  };
+
+  searchMovies = (event) => {
+    event.preventDefault();
+    axios
+      .get(searchByMovieTitle(event.target.searchMovieInput.value))
+      .then((response) =>
+        this.setState({
+          movies: response.data,
+        })
+      );
+  };
+
   render() {
     return (
-      <div className="header">
-        {/* <SearchResultsModal /> */}
-        <img className="header__img" src={BackgroundImg} />
-        <form className="header__form" onSubmit={searchMovies}>
-          <h1 className="header__label">What do you want to watch today?</h1>
-          <div className="header__container">
-            <input className="header__input" type="text"></input>
-            <button className="header__btn" type="submit" formMethod="get">
-              SEARCH
-            </button>
-          </div>
-        </form>
-      </div>
+      <>
+        <Header searchMovies={this.searchMovies} />
+        <SearchResultsModal {...this.props} movies={this.state.movies} />
+      </>
     );
   }
 }

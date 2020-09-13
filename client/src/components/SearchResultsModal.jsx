@@ -2,7 +2,12 @@ import React from "react";
 import SearchResultsItem from "./SearchResultsItem";
 import CloseIcon from "../assets/icons/times-solid.svg";
 
-const SearchResultsModal = () => {
+const SearchResultsModal = ({ movies, match }) => {
+  // console.log("searchresultsmodal", movies);
+  const searchResults = movies.map((movie) => (
+    <SearchResultsItem key={movie.imdbID} movieData={movie} />
+  ));
+
   return (
     <div className="search-modal">
       <div className="search-results">
@@ -14,20 +19,7 @@ const SearchResultsModal = () => {
           <img className="share-movie__close-btn" src={CloseIcon} />
         </div>
 
-        <div className="search-results__container">
-          <SearchResultsItem />
-          {/* <SearchResultsItem />
-          <SearchResultsItem />
-          <SearchResultsItem />
-          <SearchResultsItem />
-          <SearchResultsItem />
-          <SearchResultsItem />
-          <SearchResultsItem />
-          <SearchResultsItem />
-          <SearchResultsItem />
-          <SearchResultsItem />
-          <SearchResultsItem /> */}
-        </div>
+        <div className="search-results__container">{searchResults}</div>
       </div>
     </div>
   );

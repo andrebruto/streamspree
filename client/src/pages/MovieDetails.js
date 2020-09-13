@@ -11,31 +11,6 @@ import RottenTomatoesLogo from "../assets/logos/rotten-tomatoes.png";
 import MetacriticLogo from "../assets/logos/metacritic.png";
 
 class MovieDetails extends Component {
-  state = {
-    username: "",
-    email: "",
-    date: "",
-    text: "",
-  };
-
-  submitMessage = (event) => {
-    event.preventDefault();
-    const commentValue = event.target.message.value;
-    if (commentValue.trim(" ") === "") {
-      this.setState({ error: "You must enter a comment." });
-      return;
-    }
-
-    this.setState({ error: "" });
-
-    const comment = {
-      name: "Mohan Muruge",
-      comment: commentValue,
-    };
-    this.postNewComment(comment);
-    event.target.reset();
-  };
-
   render() {
     return (
       <>
