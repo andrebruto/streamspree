@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AddToPlaylist from "../components/AddToPlaylist";
+import PosterNotAvailable from "../assets/images/poster-not-available.jpg";
 
 class SearchResultsItem extends Component {
   render() {
     const { title, poster, imdbID } = this.props.movieData;
     return (
       <div key={imdbID} className="results-item">
-        <img className="results-item__poster" src={poster} />
+        {poster === "N/A" ? (
+          <img className="results-item__poster" src={PosterNotAvailable} />
+        ) : (
+          <img className="results-item__poster" src={poster} />
+        )}
 
         <div>
           <div className="results-item__container">

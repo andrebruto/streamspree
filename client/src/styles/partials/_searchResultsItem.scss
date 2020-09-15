@@ -20,7 +20,7 @@
   }
 
   &__container {
-    width: 220px;
+    width: 240px;
     @include flex-row;
     justify-content: space-between;
     align-items: center;
@@ -34,6 +34,20 @@
     // border: 1px solid $carbon;
     font-family: "IBMPlexSans-Bold";
     border-radius: 20px;
+    width: 110px;
+    height: 2.2rem;
+    &--add {
+      background-color: $sky;
+      color: $dark-carbon;
+      width: 110px;
+      height: 2.2rem;
+    }
+    &--remove {
+      background-color: $medium-carbon;
+      color: $off-white;
+      width: 110px;
+      height: 2.2rem;
+    }
   }
   &__btn-details {
     border: none;
@@ -42,5 +56,7 @@
     color: $off-white;
     font-family: "IBMPlexSans-Bold";
     border-radius: 20px;
+    width: 110px;
+    height: 2.2rem;
   }
 }

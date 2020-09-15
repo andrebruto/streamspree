@@ -26,7 +26,7 @@ class Playlist extends Component {
   };
 
   updateList = (movieID) => {
-    console.log("updateList", movieID);
+    // console.log("updateList", movieID);
     this.setState({
       movies: this.state.movies.filter((movie) => movie.movie_id !== movieID),
     });

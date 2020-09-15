@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import MoviePoster from "../assets/images/11-avengers_1_orig.jpg";
-import stream01 from "../assets/logos/netflix.png";
-import stream02 from "../assets/logos/amazon-video.png";
-import stream03 from "../assets/logos/apple-tv-plus.png";
-import stream04 from "../assets/logos/crave.png";
+import PosterNotAvailable from "../assets/images/poster-not-available.jpg";
 import ShareMovieModal from "../components/ShareMovieModal";
 import MovieDetailsComments from "../components/MovieDetailsComments";
 import IMDBLogo from "../assets/logos/imdb.png";
@@ -50,14 +46,23 @@ class MovieDetails extends Component {
   };
 
   searchMovieByID = (movieID) => {
-    axios.get(searchByMovieID(movieID)).then((response) =>
+    axios.get(searchByMovieID(movieID)).then((response) => {
+      // console.log(response.data.ratings);
       this.setState({
         movieDetails: response.data,
-        imdbRatings: response.data.ratings[0].Value,
-        rottenRatings: response.data.ratings[1].Value,
-        metaRatings: response.data.ratings[2].Value,
-      })
-    );
+        ...(response.data.ratings && {
+          ...(response.data.ratings[0] && {
+            imdbRatings: response.data.ratings[0].Value,
+          }),
+          ...(response.data.ratings[1] && {
+            rottenRatings: response.data.ratings[1].Value,
+          }),
+          ...(response.data.ratings[2] && {
+            metaRatings: response.data.ratings[2].Value,
+          }),
+        }),
+      });
+    });
   };
 
   postComment = (e) => {
@@ -83,7 +88,7 @@ class MovieDetails extends Component {
   };
 
   render() {
-    // console.log(this.state.movieDetails);
+    console.log(this.state.movieDetails.poster);
     if (this.state.movieDetails) {
       return (
         <>
@@ -91,12 +96,21 @@ class MovieDetails extends Component {
             {/* <ShareMovieModal /> */}
             <div className="movie-details__container">
               <div className="movie-details__subcontainer">
-                <img
-                  className="movie-details__poster"
-                  src={this.state.movieDetails.poster}
-                />
-                <button className="movie-details__share">SHARE</button>
-                <AddToPlaylist movieID={this.movieID} />
+                {this.state.movieDetails.poster === "N/A" ? (
+                  <img
+                    className="movie-details__poster-notAvailable"
+                    src={PosterNotAvailable}
+                  />
+                ) : (
+                  <img
+                    className="movie-details__poster"
+                    src={this.state.movieDetails.poster}
+                  />
+                )}
+                <div className="movie-details__btn-subcontainer">
+                  <AddToPlaylist movieID={this.movieID} />
+                  <button className="movie-details__share">+ SHARE</button>
+                </div>
               </div>
               <div className="movie-details__info">
                 <h2 className="movie-details__title">
@@ -128,7 +142,13 @@ class MovieDetails extends Component {
                 <div className="movie-details__ratings">
                   <p className="movie-details__subtitle">RATINGS:</p>
                   <div className="movie-details__ratings-container">
-                    <div className="movie-details__ratings-source">
+                    <div
+                      className={
+                        this.state.imdbRatings
+                          ? "movie-details__ratings-source"
+                          : "movie-details__ratings-source--imdb-off"
+                      }
+                    >
                       <img
                         className="movie-details__ratings-img"
                         src={IMDBLogo}
@@ -137,7 +157,13 @@ class MovieDetails extends Component {
                         {this.state.imdbRatings}
                       </p>
                     </div>
-                    <div className="movie-details__ratings-source">
+                    <div
+                      className={
+                        this.state.rottenRatings
+                          ? "movie-details__ratings-source"
+                          : "movie-details__ratings-source--rotten-off"
+                      }
+                    >
                       <img
                         className="movie-details__ratings-img"
                         src={RottenTomatoesLogo}
@@ -146,7 +172,13 @@ class MovieDetails extends Component {
                         {this.state.rottenRatings}
                       </p>
                     </div>
-                    <div className="movie-details__ratings-source">
+                    <div
+                      className={
+                        this.state.metaRatings
+                          ? "movie-details__ratings-source"
+                          : "movie-details__ratings-source--metacritic-off"
+                      }
+                    >
                       <img
                         className="movie-details__ratings-img"
                         src={MetacriticLogo}
@@ -155,27 +187,6 @@ class MovieDetails extends Component {
                         {this.state.metaRatings}
                       </p>
                     </div>
-                  </div>
-                </div>
-                <div className="movie-details__streaming">
-                  <p className="movie-details__subtitle">STREAMING ON:</p>
-                  <div className="movie-details__streaming-logos">
-                    <img
-                      className="movie-details__streaming-service"
-                      src={stream01}
-                    />
-                    <img
-                      className="movie-details__streaming-service"
-                      src={stream02}
-                    />
-                    <img
-                      className="movie-details__streaming-service"
-                      src={stream03}
-                    />
-                    <img
-                      className="movie-details__streaming-service"
-                      src={stream04}
-                    />
                   </div>
                 </div>
               </div>

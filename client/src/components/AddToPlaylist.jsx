@@ -59,17 +59,17 @@ class AddToPlaylist extends Component {
     if (this.state.inPlaylist) {
       return (
         <button
-          className="results-item__btn-playlist"
+          className="results-item__btn-playlist results-item__btn-playlist--remove"
           onClick={this.removeFromPlaylist}
         >
-          REMOVE
+          - REMOVE
         </button>
       );
     }
     return (
       <>
         <button
-          className="results-item__btn-playlist"
+          className="results-item__btn-playlist results-item__btn-playlist--add"
           onClick={this.addToPlaylist}
         >
           + PLAYLIST

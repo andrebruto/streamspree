@@ -24,17 +24,12 @@
     margin-bottom: 2rem;
   }
   &__share {
-    font-family: "IBMPlexSans-Bold";
-    font-size: 0.85rem;
-    font-weight: 500;
-    width: 220px;
-    height: 2.5rem;
-    display: inline-block;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    color: $off-white;
-    background-color: $watermelon;
     border: none;
+    padding: 0.5rem 1rem;
+    background-color: $watermelon;
+    color: $off-white;
+    font-family: "IBMPlexSans-Bold";
+    border-radius: 20px;
   }
   &__info {
     @include flex-column;
@@ -88,6 +83,15 @@
     margin-right: 1.5rem;
     @include flex-column;
     @include justify-align-center;
+    &--imdb-off {
+      display: none;
+    }
+    &--rotten-off {
+      display: none;
+    }
+    &--metacritic-off {
+      display: none;
+    }
   }
   &__ratings-img {
     height: 20px;
@@ -148,22 +152,34 @@
       @include flex-column;
       justify-content: flex-start;
       align-items: center;
-      // margin-top: 1rem;
+      margin-top: 2rem;
       margin-right: 4rem;
     }
     &__poster {
       height: 400px;
       width: 280px;
       border-radius: 10px;
-      box-shadow: -6px 6px 8px #1b1b1b;
+      box-shadow: -6px 6px 8px $black;
       margin-bottom: 2rem;
+    }
+    &__poster-notAvailable {
+      height: 400px;
+      width: 280px;
+      border-radius: 10px;
+      box-shadow: -6px 6px 8px $dark-carbon;
+      margin-bottom: 2rem;
+    }
+    &__btn-subcontainer {
+      width: 240px;
+      @include flex-row;
+      justify-content: space-between;
     }
     &__share {
       font-family: "IBMPlexSans-Bold";
       font-size: 0.85rem;
       font-weight: 500;
-      width: 220px;
-      height: 2.5rem;
+      width: 110px;
+      height: 2.2rem;
       display: inline-block;
       padding: 0.5rem 1rem;
       border-radius: 20px;
@@ -214,6 +230,15 @@
       margin-right: 4rem;
       @include flex-column;
       @include justify-align-center;
+      &--imdb-off {
+        display: none;
+      }
+      &--rotten-off {
+        display: none;
+      }
+      &--metacritic-off {
+        display: none;
+      }
     }
     &__ratings-img {
       height: 30px;

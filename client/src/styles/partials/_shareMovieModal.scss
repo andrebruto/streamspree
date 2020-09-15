@@ -29,6 +29,8 @@
   }
   &__close-btn {
     height: 2.5rem;
+    filter: invert(50%) sepia(0%) saturate(1977%) hue-rotate(148deg)
+      brightness(96%) contrast(99%);
   }
   &__name {
     font-family: "IBMPlexSans-Bold";
