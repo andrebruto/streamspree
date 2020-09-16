@@ -94,6 +94,7 @@ class MovieDetails extends Component {
         <>
           <div className="movie-details">
             {/* <ShareMovieModal /> */}
+
             <div className="movie-details__container">
               <div className="movie-details__subcontainer">
                 {this.state.movieDetails.poster === "N/A" ? (

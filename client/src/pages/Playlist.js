@@ -35,7 +35,7 @@ class Playlist extends Component {
   render() {
     return (
       <div className="playlist">
-        <h1 className="playlist__title">PLAYLIST</h1>
+        <h1 className="playlist__title">WATCHLIST</h1>
         <div className="playlist__container">
           {this.state.movies.map((movie) => (
             <PlaylistItem

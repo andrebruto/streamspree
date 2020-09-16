@@ -2,6 +2,12 @@ import React from "react";
 import BackgroundImg from "../assets/images/background-image.jpg";
 
 const Header = ({ searchMovies }) => {
+  const navRef = React.useRef(null);
+
+  const onAddClick = () => {
+    navRef.current.classList.add("header__btn--anim");
+  };
+
   return (
     <div className="header">
       <img
@@ -17,7 +23,7 @@ const Header = ({ searchMovies }) => {
             type="search"
             name="searchMovieInput"
           ></input>
-          <button className="header__btn" type="submit">
+          <button ref={navRef} className="header__btn" onClick={onAddClick}>
             SEARCH
           </button>
         </div>

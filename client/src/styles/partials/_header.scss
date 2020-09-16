@@ -1,3 +1,36 @@
+@-webkit-keyframes puff-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+}
+@keyframes puff-out-center {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    -webkit-filter: blur(4px);
+    filter: blur(4px);
+    opacity: 0;
+  }
+}
+
 .header {
   margin-top: 3rem;
   &__img {
@@ -99,6 +132,7 @@
 @include desktop {
   .header {
     margin-top: 5rem;
+
     &__img {
       width: 100%;
       height: 80vh;
@@ -148,6 +182,13 @@
       width: 50%;
       height: 3.5rem;
       border-radius: 30px;
+      &--anim {
+        background-color: #00aad0;
+        color: #00aad0;
+        -webkit-animation: puff-out-center 0.2s
+          cubic-bezier(0.165, 0.84, 0.44, 1) both;
+        animation: puff-out-center 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) both;
+      }
     }
   }
 }

@@ -11,6 +11,8 @@ const SearchResultsModal = ({ movies, match }) => {
 
   const refreshPage = () => window.location.reload();
 
+  const navRef = React.useRef(null);
+
   return (
     <div
       className={movies.length === 0 ? `search-modal` : `search-modal__visible`}
@@ -24,17 +26,13 @@ const SearchResultsModal = ({ movies, match }) => {
             <Link to="/playlist/1">
               <div className="search-results__playlist-btn">GO TO PLAYLIST</div>
             </Link>
-            <button
-              class="search-results__close"
-              type="button"
+
+            <img
+              className="share-movie__close-btn"
+              src={CloseIcon}
+              alt="close icon"
               onClick={refreshPage}
-            >
-              <img
-                className="share-movie__close-btn"
-                src={CloseIcon}
-                alt="close icon"
-              />
-            </button>
+            />
           </div>
         </div>
 

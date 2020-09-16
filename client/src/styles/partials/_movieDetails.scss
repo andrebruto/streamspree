@@ -5,6 +5,24 @@
   @include justify-align-center;
   // padding: 14rem 8rem 10rem 8rem;
 
+  &__back {
+    align-self: flex-end;
+    @include flex-row;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 7.5rem 1.5rem 1rem 0;
+    border-radius: 20px;
+    border: 2px solid $carbon;
+    padding: 0.5rem 1rem;
+  }
+  &__back-icon {
+    height: 15px;
+  }
+  &__back-text {
+    font-size: 1rem;
+    margin-left: 1rem;
+    color: $carbon;
+  }
   &__container {
     @include flex-column;
     @include justify-align-center;
@@ -14,7 +32,7 @@
     @include flex-column;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 1rem;
+    // margin-top: 1rem;
   }
   &__poster {
     height: 400px;

@@ -21,6 +21,7 @@ class App extends Component {
   searchMovies = (event) => {
     event.preventDefault();
     const inputText = event.target.searchMovieInput.value;
+
     axios.get(searchByMovieTitle(inputText)).then((response) =>
       this.setState({
         movies: response.data,
