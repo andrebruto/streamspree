@@ -140,7 +140,15 @@ class MovieDetails extends Component {
                   <span className="movie-details__data--bold">Plot:</span>
                   {this.state.movieDetails.plot}
                 </p>
-                <div className="movie-details__ratings">
+                <div
+                  className={
+                    this.state.imdbRatings ||
+                    this.state.rottenRatings ||
+                    this.state.metaRatings
+                      ? "movie-details__ratings"
+                      : "movie-details__ratings--off"
+                  }
+                >
                   <p className="movie-details__subtitle">RATINGS:</p>
                   <div className="movie-details__ratings-container">
                     <div

@@ -15,8 +15,12 @@ const Navbar = () => {
         </Link>
       </div>
       <div className="navbar__subcontainer">
-        <p className="navbar__menu-item">HOME</p>
-        <p className="navbar__menu-item">WATCHLIST</p>
+        <Link to="/">
+          <p className="navbar__menu-item">HOME</p>
+        </Link>
+        <Link to="/playlist/1">
+          <p className="navbar__menu-item">WATCHLIST</p>
+        </Link>
       </div>
       <BurgerMenu />
     </div>

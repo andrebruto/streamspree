@@ -3,26 +3,10 @@
   width: 100%;
   @include flex-column;
   @include justify-align-center;
+  padding-bottom: 30rem;
+  position: relative;
   // padding: 14rem 8rem 10rem 8rem;
 
-  &__back {
-    align-self: flex-end;
-    @include flex-row;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 7.5rem 1.5rem 1rem 0;
-    border-radius: 20px;
-    border: 2px solid $carbon;
-    padding: 0.5rem 1rem;
-  }
-  &__back-icon {
-    height: 15px;
-  }
-  &__back-text {
-    font-size: 1rem;
-    margin-left: 1rem;
-    color: $carbon;
-  }
   &__container {
     @include flex-column;
     @include justify-align-center;
@@ -41,6 +25,12 @@
     box-shadow: -6px 6px 8px #1b1b1b;
     margin-bottom: 2rem;
   }
+  &__btn-subcontainer {
+    @include flex-column;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+  }
   &__share {
     border: none;
     padding: 0.5rem 1rem;
@@ -48,6 +38,7 @@
     color: $off-white;
     font-family: "IBMPlexSans-Bold";
     border-radius: 20px;
+    width: 240px;
   }
   &__info {
     @include flex-column;
@@ -92,6 +83,9 @@
     margin: 2rem 0;
     padding-top: 1rem;
     border-top: 1px solid lightgray;
+    &--off {
+      display: none;
+    }
   }
   &__ratings-container {
     @include flex-row;
@@ -147,7 +141,18 @@
     &__title {
       align-self: flex-start;
       font-family: "Poppins-ExtraBold";
-      font-size: 2.5rem;
+      font-size: 2.2rem;
+    }
+    &__btn-subcontainer {
+      height: auto;
+      width: 240px;
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 1rem;
+    }
+    &__share {
+      width: 110px;
     }
     &__year {
       text-align: left;
@@ -157,13 +162,13 @@
 
 @include desktop {
   .movie-details {
-    background-color: $neutral;
-    width: 100%;
+    padding-bottom: 14rem;
     &__container {
       @include flex-row;
       justify-content: flex-start;
       align-items: flex-start;
       margin-top: 10rem;
+      margin-right: 8rem;
       margin-left: 8rem;
     }
     &__subcontainer {
@@ -208,12 +213,13 @@
     &__info {
       @include flex-column;
       justify-content: flex-start;
-      width: 50%;
+      // width: 50%;
     }
     &__title {
       font-family: "Poppins-ExtraBold";
       letter-spacing: -0.1rem;
-      font-size: 2.5rem;
+      font-size: 2.2rem;
+      text-align: left;
       color: $dark-carbon;
     }
     &__year {
@@ -245,7 +251,7 @@
       margin-left: 1rem;
     }
     &__ratings-source {
-      margin-right: 4rem;
+      margin-right: 3.2rem;
       @include flex-column;
       @include justify-align-center;
       &--imdb-off {
@@ -259,7 +265,7 @@
       }
     }
     &__ratings-img {
-      height: 30px;
+      height: 25px;
       margin-bottom: 0.5rem;
     }
     &__streaming {

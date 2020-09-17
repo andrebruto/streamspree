@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Header from "./components/Header";
-
+import RandomMovie from "./components/RandomMovie";
 import SearchResultsModal from "./components/SearchResultsModal";
 
 const BASE_URL = "http://localhost:5000";
@@ -39,6 +39,7 @@ class App extends Component {
           movies={this.state.movies}
           match={this.state.searchText}
         />
+        <RandomMovie />
       </>
     );
   }

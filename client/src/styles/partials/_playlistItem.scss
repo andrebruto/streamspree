@@ -6,7 +6,7 @@
   border-bottom: 1px solid $carbon;
 
   &__poster {
-    height: 17.5rem;
+    height: 22rem;
     border-radius: 10px;
     margin-bottom: 1rem;
     &:hover {
@@ -16,17 +16,21 @@
   &__movie-title {
     // font-family: "IBMPlexSans-SemiBold";
     font-family: "Poppins-ExtraBold";
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: $dark-carbon;
   }
   &__movie-subtitle {
     font-family: "Poppins-Regular";
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: $medium-carbon;
   }
   &__container {
     @include flex-column;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 1rem;
+    height: 90px;
+    width: 90%;
   }
   &__btn-remove {
     font-family: "IBMPlexSans-Bold";
@@ -60,18 +64,32 @@
 
 @include tablet {
   .playlist-item {
-    margin-right: 2rem;
+    // margin-right: 2rem;
+    border-bottom: none;
+    &__poster {
+      height: 350px;
+    }
+    &__container {
+      width: 100%;
+      height: auto;
+      @include flex-row;
+      justify-content: space-between;
+    }
+  }
+}
+
+@include desktop {
+  .playlist-item {
+    // margin-right: 2.7rem;
+    margin-bottom: 2rem;
     border-bottom: none;
   }
 }
 
 @include desktop {
   .playlist-item {
-    margin-right: 3.5rem;
-    margin-bottom: 2rem;
-    border-bottom: none;
-    &__poster {
-      height: 350px;
+    &__container {
+      width: 100%;
     }
   }
 }

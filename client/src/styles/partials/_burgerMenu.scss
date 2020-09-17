@@ -1,3 +1,36 @@
+@-webkit-keyframes swing-in-right-fwd {
+  0% {
+    -webkit-transform: rotateY(-100deg);
+    transform: rotateY(-100deg);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    opacity: 1;
+  }
+}
+@keyframes swing-in-right-fwd {
+  0% {
+    -webkit-transform: rotateY(-100deg);
+    transform: rotateY(-100deg);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateY(0);
+    transform: rotateY(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    opacity: 1;
+  }
+}
+
 .burger-menu {
   display: block;
   margin-right: 3rem;
@@ -9,28 +42,32 @@
   }
   &__modal {
     display: block;
-    height: 150px;
-    width: 80%;
-    border-radius: 10px;
+    height: 140px;
+    width: 90vw;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
     background-color: $off-white;
     // background-color: red;
     color: black;
     position: absolute;
     top: 0;
-    right: 0;
-    margin-top: 2rem;
-    // margin-right: 1rem;
+    left: 0;
+    // transform: translate(-10%);
     padding: 1rem;
     @include flex-column;
     justify-content: space-between;
     align-items: center;
     box-shadow: -6px 6px 8px rgba($color: #000000, $alpha: 0.2);
+    -webkit-animation: swing-in-right-fwd 0.5s
+      cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    animation: swing-in-right-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+      both;
     &--off {
       display: none;
     }
   }
   &__logo-container {
-    width: 200px;
+    width: 50vw;
     @include flex-row;
     justify-content: space-between;
     align-items: center;
@@ -70,16 +107,12 @@
 
   &__item {
     // background-color: $sky;
-    width: 200px;
-    font-size: 0.8rem;
-    color: $dark-carbon;
+    width: 90vw;
+    font-size: 0.9rem;
+    color: $carbon;
     text-align: center;
     padding: 1rem 0;
     border-top: 2px solid $neutral;
-    &--watchlist {
-      color: $medium-carbon;
-      border-bottom: 2px solid $neutral;
-    }
   }
 }
 

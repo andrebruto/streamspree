@@ -2,8 +2,13 @@
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
   background-color: $white;
-  padding: 3rem 1rem;
-
+  padding: 3rem 0;
+  position: absolute;
+  top: 190%;
+  width: 100%;
+  box-shadow: -4px -4px 12px rgba($color: #000000, $alpha: 0.2);
+  @include flex-column;
+  @include justify-align-center;
   &__title {
     font-family: "Poppins-ExtraBold";
     margin-bottom: 1rem;
@@ -14,6 +19,7 @@
   &__form {
     @include flex-column;
     @include justify-align-center;
+    width: 90%;
     padding-bottom: 3rem;
     border-bottom: 2px solid $neutral;
   }
@@ -56,11 +62,12 @@
     margin-top: 2rem;
     padding-bottom: 2.5rem;
     border-bottom: 2px solid $neutral;
+    width: 80%;
   }
   &__comment-container {
     @include flex-row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 1rem;
   }
   &__comment-username {
@@ -89,6 +96,7 @@
 
 @include tablet {
   .details-comments {
+    top: 180%;
     &__title {
       text-align: left;
       margin-left: 1.5rem;
@@ -100,7 +108,7 @@
     }
 
     &__comment {
-      padding: 0 2rem;
+      padding: 0 2rem 2rem 2rem;
     }
     &__comment-username {
       font-size: 1.16rem;
@@ -119,7 +127,7 @@
 
 @include desktop {
   .details-comments {
-    padding: 2.5rem 8rem;
+    top: 95%;
     &__title {
       font-size: 2rem;
       margin-bottom: 1rem;
@@ -170,5 +178,11 @@
       font-size: 1.2rem;
       color: $dark-carbon;
     }
+  }
+}
+
+@include wide {
+  .details-comments {
+    top: 90%;
   }
 }

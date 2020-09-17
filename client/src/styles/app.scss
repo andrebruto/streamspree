@@ -11,6 +11,7 @@
 @import "./partials/playlist";
 @import "./partials/playlistItem";
 @import "./partials/burgerMenu";
+@import "./partials/randomMovieModal";
 
 * {
   margin: 0;
@@ -22,7 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100%;
-  background-color: $neutral;
+  background-color: black;
 }
 
 a {
