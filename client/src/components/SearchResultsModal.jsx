@@ -3,16 +3,15 @@ import { Link } from "react-router-dom";
 import SearchResultsItem from "./SearchResultsItem";
 import CloseIcon from "../assets/icons/times-solid.svg";
 
-const SearchResultsModal = ({ movies, match }) => {
+const SearchResultsModal = ({ movies, match, resultsModal, hideModal }) => {
   // console.log("searchresultsmodal", movies);
   const searchResults = movies.map((movie) => (
     <SearchResultsItem key={movie.imdbID} movieData={movie} />
   ));
 
-  const refreshPage = () => window.location.reload();
-
-  const navRef = React.useRef(null);
-
+  if (!resultsModal) {
+    return <></>;
+  }
   return (
     <div
       className={movies.length === 0 ? `search-modal` : `search-modal__visible`}
@@ -31,7 +30,7 @@ const SearchResultsModal = ({ movies, match }) => {
               className="share-movie__close-btn"
               src={CloseIcon}
               alt="close icon"
-              onClick={refreshPage}
+              onClick={hideModal}
             />
           </div>
         </div>

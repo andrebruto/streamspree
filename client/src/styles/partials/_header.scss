@@ -84,6 +84,7 @@
     &--anim {
       background-color: #00aad0;
       color: #00aad0;
+      display: block;
       -webkit-animation: puff-out-center 0.2s cubic-bezier(0.165, 0.84, 0.44, 1)
         both;
       animation: puff-out-center 0.2s cubic-bezier(0.165, 0.84, 0.44, 1) both;

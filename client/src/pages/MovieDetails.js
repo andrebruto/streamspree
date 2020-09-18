@@ -28,6 +28,7 @@ class MovieDetails extends Component {
     error: "",
     movieID: "",
     comments: [],
+    shareModal: false,
   };
 
   movieID;
@@ -87,14 +88,23 @@ class MovieDetails extends Component {
     e.target.reset();
   };
 
+  onOpenModal = (e) => {
+    this.setState({ shareModal: true });
+  };
+  onCloseModal = () => {
+    this.setState({ shareModal: false });
+  };
+
   render() {
-    console.log(this.state.movieDetails.poster);
     if (this.state.movieDetails) {
       return (
         <>
           <div className="movie-details">
-            {/* <ShareMovieModal /> */}
-
+            <ShareMovieModal
+              movieTitle={this.state.movieDetails.title}
+              hideModal={this.onCloseModal}
+              shareModal={this.state.shareModal}
+            />
             <div className="movie-details__container">
               <div className="movie-details__subcontainer">
                 {this.state.movieDetails.poster === "N/A" ? (
@@ -110,7 +120,12 @@ class MovieDetails extends Component {
                 )}
                 <div className="movie-details__btn-subcontainer">
                   <AddToPlaylist movieID={this.movieID} />
-                  <button className="movie-details__share">+ SHARE</button>
+                  <button
+                    className="movie-details__share"
+                    onClick={this.onOpenModal}
+                  >
+                    + SHARE
+                  </button>
                 </div>
               </div>
               <div className="movie-details__info">
@@ -201,6 +216,7 @@ class MovieDetails extends Component {
               </div>
             </div>
           </div>
+
           <MovieDetailsComments
             postComment={this.postComment}
             comments={this.state.comments}

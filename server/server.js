@@ -56,6 +56,7 @@ const getRandomMovie = async () => {
       "Black",
       "Heart",
       "Love",
+      "Wonder",
       "Music",
       "Happy",
       "Fun",

@@ -16,6 +16,14 @@ class App extends Component {
     movieDetails: {},
     error: "",
     searchText: "",
+    resultsModal: false,
+  };
+
+  onOpenModal = () => {
+    this.setState({ resultsModal: true });
+  };
+  onCloseModal = () => {
+    this.setState({ resultsModal: false });
   };
 
   searchMovies = (event) => {
@@ -28,9 +36,11 @@ class App extends Component {
         searchText: inputText,
       })
     );
+    this.onOpenModal();
   };
 
   render() {
+    // console.log(this.state.resultsModal);
     return (
       <>
         <Header searchMovies={this.searchMovies} />
@@ -38,6 +48,8 @@ class App extends Component {
           {...this.props}
           movies={this.state.movies}
           match={this.state.searchText}
+          resultsModal={this.state.resultsModal}
+          hideModal={this.onCloseModal}
         />
         <RandomMovie />
       </>

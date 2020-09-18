@@ -8,12 +8,13 @@ class SearchResultsItem extends Component {
     const { title, poster, imdbID } = this.props.movieData;
     return (
       <div key={imdbID} className="results-item">
-        {poster === "N/A" ? (
-          <img className="results-item__poster" src={PosterNotAvailable} />
-        ) : (
-          <img className="results-item__poster" src={poster} />
-        )}
-
+        <Link to={`/movie/details/${imdbID}`}>
+          {poster === "N/A" ? (
+            <img className="results-item__poster" src={PosterNotAvailable} />
+          ) : (
+            <img className="results-item__poster" src={poster} />
+          )}
+        </Link>
         <div>
           <div className="results-item__container">
             <AddToPlaylist movieID={imdbID} />
