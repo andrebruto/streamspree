@@ -12,27 +12,31 @@ const RandomMovieModal = ({ randomMovie }) => {
   const navRef = React.useRef(null);
 
   return (
-    <div className={randomMovie.title ? "rm-modal--visible" : "rm-modal"}>
-      <img
-        className="rm-modal__close-btn"
-        src={CloseIcon}
-        alt="close icon"
-        onClick={refreshPage}
-      />
-      <h1 className="rm-modal__title">CHECK THIS ONE OUT!</h1>
-      {poster === "N/A" ? (
-        <img className="rm-modal__poster" src={PosterNotAvailable} />
-      ) : (
-        <img className="rm-modal__poster" src={poster} />
-      )}
+    <div
+      className={!randomMovie.title ? `search-modal` : `search-modal__visible`}
+    >
+      <div className={randomMovie.title ? "rm-modal--visible" : "rm-modal"}>
+        <img
+          className="rm-modal__close-btn"
+          src={CloseIcon}
+          alt="close icon"
+          onClick={refreshPage}
+        />
+        <h1 className="rm-modal__title">CHECK THIS ONE OUT!</h1>
+        {poster === "N/A" ? (
+          <img className="rm-modal__poster" src={PosterNotAvailable} />
+        ) : (
+          <img className="rm-modal__poster" src={poster} />
+        )}
 
-      <p className="rm-modal__movie-title">{title}</p>
-      <p className="rm-modal__year">{year}</p>
-      <div className="rm-modal__btn-container">
-        <AddToPlaylist movieID={imdbID} />
-        <Link to={`/movie/details/${imdbID}`}>
-          <button className="results-item__btn-details">+ DETAILS</button>
-        </Link>
+        <p className="rm-modal__movie-title">{title}</p>
+        <p className="rm-modal__year">{year}</p>
+        <div className="rm-modal__btn-container">
+          <AddToPlaylist movieID={imdbID} />
+          <Link to={`/movie/details/${imdbID}`}>
+            <button className="results-item__btn-details">+ DETAILS</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
