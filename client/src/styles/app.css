@@ -1214,7 +1214,7 @@
 
 @media screen and (min-width: 1280px) {
   .details-comments {
-    top: 90%;
+    top: 105%;
   }
 }
 
@@ -1513,8 +1513,9 @@
 
 @media screen and (min-width: 1280px) {
   .search-results {
-    height: 74%;
+    height: 88%;
     width: 78%;
+    margin-top: 8rem;
     margin-left: 10rem;
     margin-right: 10rem;
   }
