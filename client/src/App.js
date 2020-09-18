@@ -43,6 +43,7 @@ class App extends Component {
     // console.log(this.state.resultsModal);
     return (
       <>
+        <div className="black-header"></div>
         <Header searchMovies={this.searchMovies} />
         <SearchResultsModal
           {...this.props}

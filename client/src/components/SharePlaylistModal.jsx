@@ -1,7 +1,7 @@
 import React from "react";
 import CloseIcon from "../assets/icons/times-solid.svg";
 
-const ShareMovieModal = ({ movieTitle, hideModal, shareModal }) => {
+const SharePlaylistModal = ({ hideModal, shareModal }) => {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(window.location.href);
   };
@@ -13,11 +13,7 @@ const ShareMovieModal = ({ movieTitle, hideModal, shareModal }) => {
       <div className="modal">
         <div className="share-movie">
           <div className="share-movie__container">
-            <h1 className="share-movie__title">
-              Share{" "}
-              <span className="share-movie__title-name">{movieTitle}</span> with
-              your friends!
-            </h1>
+            <h1 className="share-movie__title">Share with your friends!</h1>
             <img
               className="share-movie__close-btn"
               src={CloseIcon}
@@ -38,4 +34,4 @@ const ShareMovieModal = ({ movieTitle, hideModal, shareModal }) => {
   }
 };
 
-export default ShareMovieModal;
+export default SharePlaylistModal;

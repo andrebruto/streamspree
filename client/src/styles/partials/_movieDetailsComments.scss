@@ -4,7 +4,7 @@
   background-color: $white;
   padding: 3rem 0;
   position: absolute;
-  top: 190%;
+  top: 165%;
   width: 100%;
   box-shadow: -4px -4px 12px rgba($color: #000000, $alpha: 0.2);
   @include flex-column;
@@ -96,7 +96,7 @@
 
 @include tablet {
   .details-comments {
-    top: 180%;
+    top: 145%;
     &__title {
       text-align: left;
       margin-left: 1.5rem;

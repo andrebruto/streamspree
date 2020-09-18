@@ -4,14 +4,28 @@
   align-items: center;
   // @include justify-align-center;
   height: 100vh;
+  &__title-container {
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 8rem;
+  }
   &__title {
     font-family: "Poppins-ExtraBold";
     letter-spacing: -0.1rem;
     font-size: 2rem;
-    margin-top: 8rem;
-    // margin-bottom: 3rem;
+    margin-bottom: 1rem;
     color: $dark-carbon;
-    // display: inline-block;
+  }
+  &__share-btn {
+    border: none;
+    padding: 0.5rem 1rem;
+    font-family: "IBMPlexSans-Bold";
+    background-color: $sky;
+    color: $dark-carbon;
+    border-radius: 20px;
+    width: 240px;
+    height: 2.2rem;
   }
   &__container {
     @include flex-column;
@@ -21,9 +35,22 @@
 
 @include tablet {
   .playlist {
-    &__title {
+    &__title-container {
+      @include flex-row;
+      justify-content: flex-start;
+      align-items: center;
       align-self: flex-start;
+      margin-bottom: 1rem;
       margin-left: 6rem;
+      margin-right: 6rem;
+      width: 75%;
+    }
+    &__title {
+      margin-bottom: 0;
+      margin-right: 2rem;
+    }
+    &__share-btn {
+      width: 160px;
     }
     &__container {
       width: 75%;
@@ -38,9 +65,14 @@
 
 @include desktop {
   .playlist {
-    &__title {
+    &__title-container {
+      @include flex-row;
+      justify-content: flex-start;
+      align-items: center;
       margin-left: 8rem;
       margin-top: 10rem;
+    }
+    &__title {
       font-size: 2.5rem;
     }
     &__container {
@@ -52,9 +84,9 @@
 }
 @include wide {
   .playlist {
-    &__title {
+    &__title-container {
       margin-left: 10rem;
-      margin-top: 11rem;
+      margin-right: 10rem;
     }
     &__container {
       width: 78%;

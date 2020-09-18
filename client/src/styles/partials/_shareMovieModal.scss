@@ -1,4 +1,4 @@
-.share-modal {
+.modal {
   position: fixed;
   z-index: 999999999;
   left: 0;
@@ -12,46 +12,144 @@
 
 .share-movie {
   background-color: $white;
-  height: 25%;
-  //   width: 1400px;
-  width: 80%;
-  margin: 10rem 8rem;
+  height: auto;
+  margin-top: 8rem;
   border-radius: 20px;
   box-shadow: 4px 4px 50px rgba($color: #ffffff, $alpha: 0.3);
-  padding: 3rem;
+  padding: 2rem;
+  @include flex-column;
+  justify-content: flex-start;
+  align-items: center;
   &__container {
     @include flex-row;
     justify-content: space-between;
+    margin-bottom: 3rem;
   }
   &__title {
-    margin-bottom: 2rem;
-    font-family: "IBMPlexSans-Thin";
+    font-size: 1.3rem;
+    width: 80%;
+    margin-bottom: 1rem;
+    font-family: "Poppins-ExtraBold";
+    color: $dark-carbon;
+  }
+  &__form {
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__label {
+    color: $medium-carbon;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    width: 60%;
   }
   &__close-btn {
     height: 2.5rem;
     filter: invert(50%) sepia(0%) saturate(1977%) hue-rotate(148deg)
       brightness(96%) contrast(99%);
   }
-  &__name {
-    font-family: "IBMPlexSans-Bold";
-  }
-  &__input {
-    width: 80%;
-    height: 3.5rem;
-    background-color: $white;
-    border: 2px solid $carbon;
-    border-radius: 30px;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
-  }
+
   &__btn {
-    background-color: $watermelon;
-    color: $carbon;
-    font-size: 1.2rem;
-    letter-spacing: 0.2rem;
     border: none;
-    width: 16rem;
-    height: 3.5rem;
-    border-radius: 30px;
+    padding: 0.5rem 1rem;
+    background-color: $watermelon;
+    color: $off-white;
+    font-family: "IBMPlexSans-Bold";
+    border-radius: 20px;
+    width: 240px;
+    height: 2.5rem;
+  }
+}
+
+@include tablet {
+  .share-movie {
+    height: auto;
+    width: 68%;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    &__container {
+      margin-bottom: 1rem;
+      width: 80%;
+    }
+    &__title {
+      font-size: 1.5rem;
+      width: 80%;
+    }
+    &__label {
+      color: $medium-carbon;
+      font-size: 1rem;
+      text-align: center;
+      margin-bottom: 3rem;
+      width: 100%;
+    }
+  }
+}
+
+@include desktop {
+  .share-movie {
+    width: 68%;
+    margin-left: 8rem;
+    margin-right: 8rem;
+    &__container {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    &__title {
+      font-size: 1.5rem;
+      width: 80%;
+    }
+    &__form {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    &__label {
+      color: $medium-carbon;
+      font-size: 1.2rem;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+    }
+    &__btn {
+      margin: 0;
+    }
+  }
+}
+
+@include wide {
+  .share-movie {
+    width: 74%;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    padding: 2rem 3rem;
+    &__container {
+      margin-bottom: 1rem;
+      width: 100%;
+    }
+    &__title {
+      font-size: 2.5rem;
+      width: 80%;
+    }
+    &__form {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    &__label {
+      color: $medium-carbon;
+      font-size: 1.5rem;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+    }
+    &__btn {
+      margin: 0;
+      height: 3rem;
+      width: 20rem;
+      font-size: 1rem;
+      border-radius: 30px;
+    }
   }
 }

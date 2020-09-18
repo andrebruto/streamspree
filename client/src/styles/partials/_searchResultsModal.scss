@@ -29,7 +29,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
+    // overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.8);
   }
@@ -37,13 +37,11 @@
 
 .search-results {
   background-color: $white;
-  height: 550px;
-  //   width: 1400px;
-  width: 80%;
-  margin: 10rem 8rem;
+  height: auto;
+  width: 100%;
+  margin: 14rem 0;
   border-radius: 20px;
   box-shadow: 4px 4px 50px rgba($color: #ffffff, $alpha: 0.3);
-  padding: 3rem;
   position: absolute;
   z-index: 9999999999;
   -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
@@ -51,9 +49,9 @@
   &__title-container {
     @include flex-row;
     justify-content: space-between;
+    margin: 2rem;
   }
   &__title {
-    margin-bottom: 2rem;
     font-family: "Poppins-Light";
     color: $medium-carbon;
   }
@@ -62,10 +60,13 @@
     color: $dark-carbon;
   }
   &__container {
-    @include flex-row;
+    @include flex-column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     padding: 1.7rem 0;
-    overflow-x: scroll;
-
+    flex-wrap: wrap;
+    overflow-y: scroll;
     &::-webkit-scrollbar {
       height: 20px;
     }
@@ -78,27 +79,133 @@
       border-radius: 10px;
     }
   }
+
   &__subcontainer {
-    @include flex-row;
-    align-items: flex-start;
-    margin-top: 0.25rem;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    align-items: flex-end;
   }
   &__playlist-btn {
     background-color: $carbon;
     color: $off-white;
     font-family: "IBMPlexSans-Bold";
     font-size: 0.9rem;
-    border-radius: 20px;
-    margin-right: 2rem;
-    height: 2.5rem;
+    border-radius: 30px;
+    height: 3rem;
     padding: 0 1.5rem;
+    text-align: center;
     @include flex-row;
     justify-content: center;
     align-items: center;
   }
   &__close {
+    justify-self: flex-end;
     height: 2.5rem;
     border: none;
     background-color: rgba($color: #ffffff, $alpha: 0);
+  }
+}
+
+@include tablet {
+  .search-results {
+    height: 82%;
+    width: 75%;
+    margin-top: 12rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+
+    &__title-container {
+      @include flex-row;
+      justify-content: space-between;
+      margin: 2rem;
+    }
+    &__title {
+      font-family: "Poppins-Light";
+      color: $medium-carbon;
+    }
+    &__name {
+      font-family: "Poppins-ExtraBold";
+      color: $dark-carbon;
+    }
+    &__container {
+      @include flex-row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      height: 75%;
+      width: 100%;
+      padding: 1.7rem 0;
+      // margin-left: 2rem;
+      flex-wrap: nowrap;
+      overflow-y: hidden;
+      overflow-x: scroll;
+    }
+
+    &__subcontainer {
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    &__playlist-btn {
+      background-color: $carbon;
+      color: $off-white;
+      font-family: "IBMPlexSans-Bold";
+      font-size: 0.9rem;
+      border-radius: 30px;
+      height: 3rem;
+      padding: 0 1.5rem;
+      text-align: center;
+      @include flex-row;
+      justify-content: center;
+      align-items: center;
+    }
+    &__close {
+      justify-self: flex-end;
+      height: 2.5rem;
+      border: none;
+      background-color: rgba($color: #ffffff, $alpha: 0);
+    }
+  }
+}
+
+@include desktop {
+  .search-results {
+    height: 74%;
+    width: 75%;
+    margin-left: 8rem;
+    margin-right: 8rem;
+
+    &__title-container {
+      @include flex-row;
+      justify-content: space-between;
+      margin: 2rem 3rem;
+    }
+
+    &__container {
+      height: 82%;
+      width: 100%;
+    }
+
+    &__subcontainer {
+      @include flex-row;
+      justify-content: space-between;
+      align-items: center;
+      width: 200px;
+    }
+  }
+}
+
+@include wide {
+  .search-results {
+    height: 74%;
+    width: 78%;
+    margin-left: 10rem;
+    margin-right: 10rem;
+
+    &__container {
+      height: 82%;
+      width: 100%;
+    }
   }
 }

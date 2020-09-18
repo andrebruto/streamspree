@@ -16,7 +16,7 @@ class SearchResultsItem extends Component {
           )}
         </Link>
         <div>
-          <div className="results-item__container">
+          <div className="results-item__btn-container">
             <AddToPlaylist movieID={imdbID} />
             <Link to={`/movie/details/${imdbID}`}>
               <button className="results-item__btn-details">+ DETAILS</button>
