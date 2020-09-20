@@ -107,11 +107,14 @@
   &__movie-title {
     font-family: "IBMPlexSans-SemiBold";
     color: $dark-carbon;
-    width: 80vw;
+    width: 300px;
     font-size: 1.3rem;
     margin-top: 1rem;
     margin-bottom: 0.5rem;
     text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
   }
   &__year {
     font-family: "IBMPlexSans-Regular";
@@ -151,7 +154,7 @@
 
   .rm-modal {
     &--visible {
-      top: 10%;
+      top: 3%;
       left: 25%;
       transform: translate(20%);
       width: 50vw;
@@ -168,7 +171,7 @@
     }
     &__poster {
       height: auto;
-      width: 35vw;
+      width: 250px;
     }
 
     &__btn-container {
@@ -227,16 +230,13 @@
       background-color: $sky;
       margin-bottom: 1rem;
     }
-    &__poster {
-      height: auto;
-      width: 78%;
-    }
     &__movie-title {
-      font-family: "IBMPlexSans-Regular";
+      font-family: "IBMPlexSans-Bold";
       color: $dark-carbon;
       font-size: 1.1rem;
       margin-top: 1rem;
       margin-bottom: 0.2rem;
+      width: 80%;
     }
     &__year {
       font-family: "IBMPlexSans-Regular";

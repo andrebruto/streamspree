@@ -96,6 +96,7 @@ const getRandomMovie = async () => {
       "Chef",
       "Song",
       "Music",
+      "The Irishman",
     ];
     const randomTitleIndex = Math.floor(Math.random() * titles.length);
     const years = [

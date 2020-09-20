@@ -74,8 +74,10 @@
     &__movie-title {
       justify-content: center;
       align-items: center;
-      height: 60px;
-      width: 90%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: 240px;
     }
     &__container {
       width: 240px;

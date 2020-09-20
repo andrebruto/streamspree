@@ -275,6 +275,7 @@
 }
 
 .header {
+  width: 100%;
   margin-top: 3rem;
 }
 
@@ -441,7 +442,7 @@
         -ms-flex-align: start;
             align-items: flex-start;
     left: 0;
-    width: 100vw;
+    width: 100%;
     margin-top: 1rem;
   }
   .header__container {
@@ -1513,14 +1514,14 @@
 
 @media screen and (min-width: 1280px) {
   .search-results {
-    height: 88%;
+    height: 38rem;
     width: 78%;
-    margin-top: 8rem;
+    margin-top: 7.5rem;
     margin-left: 10rem;
     margin-right: 10rem;
   }
   .search-results__container {
-    height: 82%;
+    height: 80%;
     width: 100%;
   }
 }
@@ -1638,7 +1639,7 @@
     margin: 0 1.5rem;
   }
   .results-item__poster {
-    height: 350px;
+    height: 320px;
     border-radius: 10px;
     margin-top: 0;
   }
@@ -1647,7 +1648,12 @@
             box-shadow: 2px 2px 8px black;
   }
   .results-item__movie-title {
+    width: 250px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     border-bottom: none;
+    font-size: 1rem;
   }
   .results-item__container {
     width: 240px;
@@ -2191,8 +2197,10 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    height: 60px;
-    width: 90%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 240px;
   }
   .playlist-item__container {
     width: 240px;
@@ -2544,11 +2552,14 @@
 .rm-modal__movie-title {
   font-family: "IBMPlexSans-SemiBold";
   color: #545050;
-  width: 80vw;
+  width: 300px;
   font-size: 1.3rem;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
   text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .rm-modal__year {
@@ -2595,7 +2606,7 @@
     width: 20vw;
   }
   .rm-modal--visible {
-    top: 10%;
+    top: 3%;
     left: 25%;
     -webkit-transform: translate(20%);
             transform: translate(20%);
@@ -2621,7 +2632,7 @@
   }
   .rm-modal__poster {
     height: auto;
-    width: 35vw;
+    width: 250px;
   }
   .rm-modal__btn-container {
     display: -webkit-box;
@@ -2697,16 +2708,13 @@
     background-color: #caebf2;
     margin-bottom: 1rem;
   }
-  .rm-modal__poster {
-    height: auto;
-    width: 78%;
-  }
   .rm-modal__movie-title {
-    font-family: "IBMPlexSans-Regular";
+    font-family: "IBMPlexSans-Bold";
     color: #545050;
     font-size: 1.1rem;
     margin-top: 1rem;
     margin-bottom: 0.2rem;
+    width: 80%;
   }
   .rm-modal__year {
     font-family: "IBMPlexSans-Regular";
