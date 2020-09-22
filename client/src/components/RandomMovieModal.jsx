@@ -17,7 +17,7 @@ const RandomMovieModal = ({ randomMovie }) => {
     >
       <div className={randomMovie.title ? "rm-modal--visible" : "rm-modal"}>
         <img
-          className="rm-modal__close-btn"
+          className="share-movie__close-btn"
           src={CloseIcon}
           alt="close icon"
           onClick={refreshPage}

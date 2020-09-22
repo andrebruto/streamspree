@@ -52,6 +52,9 @@
     letter-spacing: -0.1rem;
     font-size: 1.5rem;
     color: $dark-carbon;
+    -webkit-animation: tracking-in-expand 0.7s
+      cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
   }
   &__year {
     font-size: 1rem;

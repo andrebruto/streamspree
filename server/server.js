@@ -116,16 +116,37 @@ const getRandomMovie = async () => {
     const urlWithParams = `${OMDB_URL}&s=${titles[randomTitleIndex]}&y=${years[randomYearIndex]}`;
     const response = await axios.get(urlWithParams);
     const data = response.data;
-    const randomData =
+
+    const randomMovie =
       data.Search[Math.floor(Math.random() * data.Search.length)];
 
-    return randomData;
+    return randomMovie;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const randomMovieFilter = async () => {
+  try {
+    let ratingsToNumber = 0;
+    let randomMovie;
+    while (ratingsToNumber < 7.9) {
+      randomMovie = await getRandomMovie();
+      const resultID = randomMovie.imdbID;
+      const urlWithID = `${OMDB_URL}&i=${resultID}`;
+      const fullMovieDetails = await axios.get(urlWithID);
+      const movieRatings = fullMovieDetails.data.imdbRating;
+      ratingsToNumber = parseFloat(movieRatings);
+      // console.log("randomMovieFilter", randomMovie);
+    }
+    return randomMovie;
   } catch (err) {
     console.log(err);
   }
 };
 
 // getRandomMovie();
+// randomMovieFilter();
 
 app.get("/movies/:title", async (req, res) => {
   const searchTerm = req.params.title;
@@ -170,7 +191,9 @@ app.get("/movies/:id/details", async (req, res) => {
 });
 
 app.get("/movies/movie/random", async (req, res) => {
-  const randomResult = await getRandomMovie();
+  const randomResult = await randomMovieFilter();
+  // console.log("getRandom01", randomResult);
+
   if (!randomResult) {
     res.status(404).json({ message: `Movie not found` });
     return;

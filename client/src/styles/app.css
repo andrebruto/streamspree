@@ -113,6 +113,32 @@
   font-display: swap;
 }
 
+@-webkit-keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes tracking-in-expand {
+  0% {
+    letter-spacing: -0.5em;
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .navbar {
   background-color: #fbfdff;
   height: 6rem;
@@ -150,6 +176,13 @@
   color: #545050;
   font-family: "Poppins-ExtraBold";
   font-size: 1.3rem;
+}
+
+.navbar__title:hover {
+  letter-spacing: 0.5rem;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
 }
 
 .navbar__title--light {
@@ -214,6 +247,14 @@
   .navbar__menu-item {
     font-size: 0.9rem;
     color: #a9a9a9;
+    -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  }
+  .navbar__menu-item:hover {
+    font-family: "IBMPlexSans-Bold";
+    color: #545050;
+    -webkit-transition: all 500ms ease;
+    transition: all 500ms ease;
   }
 }
 
@@ -357,6 +398,19 @@
   border-radius: 30px;
 }
 
+.header__btn:hover {
+  -webkit-box-shadow: 6px 6px 12px black;
+          box-shadow: 6px 6px 12px black;
+  background-color: #caebf2;
+  color: #545050;
+  font-family: "Poppins-ExtraBold";
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
   .header__img {
     width: 100%;
@@ -410,14 +464,10 @@
   }
   .header__btn {
     font-family: "IBMPlexSans-Bold";
-    background-color: #ff3b3f;
-    color: #fafafa;
     font-size: 0.6rem;
     letter-spacing: 0.2rem;
-    border: none;
     width: 50%;
     height: 2.2rem;
-    border-radius: 30px;
   }
 }
 
@@ -471,15 +521,9 @@
     font-size: 1.4rem;
   }
   .header__btn {
-    font-family: "IBMPlexSans-Bold";
-    background-color: #ff3b3f;
-    color: #fafafa;
     font-size: 0.8rem;
-    letter-spacing: 0.2rem;
-    border: none;
     width: 50%;
     height: 3.5rem;
-    border-radius: 30px;
   }
 }
 
@@ -622,6 +666,8 @@
   letter-spacing: -0.1rem;
   font-size: 1.5rem;
   color: #545050;
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 .movie-details__year {
@@ -1288,6 +1334,8 @@
   font-family: "Poppins-Light";
   color: #7b7b7b;
   font-size: 1.5rem;
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 .search-results__name {
@@ -1365,6 +1413,19 @@
           align-items: center;
 }
 
+.search-results__playlist-btn:hover {
+  -webkit-box-shadow: 2px 2px 12px rgba(169, 169, 169, 0.4);
+          box-shadow: 2px 2px 12px rgba(169, 169, 169, 0.4);
+  background-color: #caebf2;
+  color: #545050;
+  font-family: "Poppins-ExtraBold";
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
+}
+
 .search-results__close {
   justify-self: flex-end;
   height: 2.5rem;
@@ -1440,27 +1501,8 @@
             align-items: flex-end;
   }
   .search-results__playlist-btn {
-    background-color: #a9a9a9;
-    color: #fbfdff;
-    font-family: "IBMPlexSans-Bold";
     font-size: 0.9rem;
-    border-radius: 30px;
     height: 3rem;
-    padding: 0 1.5rem;
-    text-align: center;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
   }
   .search-results__close {
     justify-self: flex-end;
@@ -1508,7 +1550,7 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    width: 200px;
+    width: 220px;
   }
 }
 
@@ -1810,6 +1852,11 @@
           filter: invert(50%) sepia(0%) saturate(1977%) hue-rotate(148deg) brightness(96%) contrast(99%);
 }
 
+.share-movie__close-btn:hover {
+  -webkit-filter: invert(32%) sepia(39%) saturate(2770%) hue-rotate(331deg) brightness(106%) contrast(107%);
+          filter: invert(32%) sepia(39%) saturate(2770%) hue-rotate(331deg) brightness(106%) contrast(107%);
+}
+
 .share-movie__btn {
   border: none;
   padding: 0.5rem 1rem;
@@ -1971,6 +2018,8 @@
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #545050;
+  -webkit-animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
 }
 
 .playlist__share-btn {
@@ -1982,6 +2031,19 @@
   border-radius: 20px;
   width: 240px;
   height: 2.2rem;
+  letter-spacing: 0.2rem;
+}
+
+.playlist__share-btn:hover {
+  font-family: "Poppins-ExtraBold";
+  letter-spacing: 0;
+  background-color: #ff3b3f;
+  color: #fafafa;
+  -webkit-box-shadow: 2px 2px 2px rgba(84, 80, 80, 0.4);
+          box-shadow: 2px 2px 2px rgba(84, 80, 80, 0.4);
+  cursor: pointer;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .playlist__container {
@@ -2470,11 +2532,24 @@
   background-color: #caebf2;
   color: #545050;
   font-size: 0.8rem;
-  letter-spacing: 0.2rem;
+  letter-spacing: 0.4rem;
   border: none;
   width: 80vw;
   height: 3rem;
   border-radius: 30px;
+}
+
+.random-movie__btn:hover {
+  -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+  background-color: #ff3b3f;
+  color: #fafafa;
+  font-family: "Poppins-ExtraBold";
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
 }
 
 .rm-modal {
@@ -2667,12 +2742,6 @@
     font-size: 0.9rem;
   }
   .random-movie__btn {
-    font-family: "IBMPlexSans-Bold";
-    background-color: #caebf2;
-    color: #545050;
-    font-size: 0.8rem;
-    letter-spacing: 0.2rem;
-    border: none;
     width: 15vw;
     height: 3rem;
     border-radius: 30px;

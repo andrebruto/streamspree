@@ -55,6 +55,9 @@
     font-family: "Poppins-Light";
     color: $medium-carbon;
     font-size: 1.5rem;
+    -webkit-animation: tracking-in-expand 0.7s
+      cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
   }
   &__name {
     font-family: "Poppins-ExtraBold";
@@ -97,10 +100,21 @@
     border-radius: 30px;
     height: 2rem;
     padding: 0 1.5rem;
+    // letter-spacing: 0.2rem;
     text-align: center;
     @include flex-row;
     justify-content: center;
     align-items: center;
+    &:hover {
+      box-shadow: 2px 2px 12px rgba($color: $carbon, $alpha: 0.4);
+      background-color: $sky;
+      color: $dark-carbon;
+      font-family: "Poppins-ExtraBold";
+      font-size: 0.9rem;
+      letter-spacing: 0;
+      transition: $transition-500;
+      cursor: pointer;
+    }
   }
   &__close {
     justify-self: flex-end;
@@ -151,17 +165,8 @@
       align-items: flex-end;
     }
     &__playlist-btn {
-      background-color: $carbon;
-      color: $off-white;
-      font-family: "IBMPlexSans-Bold";
       font-size: 0.9rem;
-      border-radius: 30px;
       height: 3rem;
-      padding: 0 1.5rem;
-      text-align: center;
-      @include flex-row;
-      justify-content: center;
-      align-items: center;
     }
     &__close {
       justify-self: flex-end;
@@ -194,7 +199,7 @@
       @include flex-row;
       justify-content: space-between;
       align-items: center;
-      width: 200px;
+      width: 220px;
     }
   }
 }

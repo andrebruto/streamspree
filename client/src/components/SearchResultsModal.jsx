@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import SearchResultsItem from "./SearchResultsItem";
 import CloseIcon from "../assets/icons/times-solid.svg";
 
@@ -26,8 +27,16 @@ const SearchResultsModal = ({ movies, match, resultsModal, hideModal }) => {
               <div className="search-results__playlist-btn">GO TO PLAYLIST</div>
             </Link>
 
-            <img
+            <motion.img
               className="share-movie__close-btn"
+              initial={{ scale: 0 }}
+              animate={{ rotate: 180, scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: 0.35,
+              }}
               src={CloseIcon}
               alt="close icon"
               onClick={hideModal}

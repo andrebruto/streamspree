@@ -57,6 +57,16 @@
     width: 80vw;
     height: 3rem;
     border-radius: 30px;
+    &:hover {
+      box-shadow: 6px 6px 12px rgba($color: black, $alpha: 1);
+      background-color: $sky;
+      color: $dark-carbon;
+      font-family: "Poppins-ExtraBold";
+      font-size: 0.9rem;
+      letter-spacing: 0;
+      transition: $transition-500;
+      cursor: pointer;
+    }
   }
 }
 
@@ -98,14 +108,10 @@
     }
     &__btn {
       font-family: "IBMPlexSans-Bold";
-      background-color: $watermelon;
-      color: $white;
       font-size: 0.6rem;
       letter-spacing: 0.2rem;
-      border: none;
       width: 50%;
       height: 2.2rem;
-      border-radius: 30px;
     }
   }
 }
@@ -156,15 +162,9 @@
       font-size: 1.4rem;
     }
     &__btn {
-      font-family: "IBMPlexSans-Bold";
-      background-color: $watermelon;
-      color: $white;
       font-size: 0.8rem;
-      letter-spacing: 0.2rem;
-      border: none;
       width: 50%;
       height: 3.5rem;
-      border-radius: 30px;
     }
   }
 }

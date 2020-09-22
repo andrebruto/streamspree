@@ -48,6 +48,10 @@
     height: 2.5rem;
     filter: invert(50%) sepia(0%) saturate(1977%) hue-rotate(148deg)
       brightness(96%) contrast(99%);
+    &:hover {
+      filter: invert(32%) sepia(39%) saturate(2770%) hue-rotate(331deg)
+        brightness(106%) contrast(107%);
+    }
   }
 
   &__btn {

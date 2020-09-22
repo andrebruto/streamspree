@@ -16,6 +16,9 @@
     font-size: 2rem;
     margin-bottom: 1rem;
     color: $dark-carbon;
+    -webkit-animation: tracking-in-expand 0.7s
+      cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.61, 0.355, 1) both;
   }
   &__share-btn {
     border: none;
@@ -26,6 +29,16 @@
     border-radius: 20px;
     width: 240px;
     height: 2.2rem;
+    letter-spacing: 0.2rem;
+    &:hover {
+      font-family: "Poppins-ExtraBold";
+      letter-spacing: 0;
+      background-color: $watermelon;
+      color: $white;
+      box-shadow: 2px 2px 2px rgba($color: $dark-carbon, $alpha: 0.4);
+      cursor: pointer;
+      transition: $transition-500;
+    }
   }
   &__container {
     @include flex-column;
