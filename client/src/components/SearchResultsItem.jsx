@@ -15,15 +15,24 @@ class SearchResultsItem extends Component {
             <img className="results-item__poster" src={poster} />
           )}
         </Link>
-        <div>
-          <div className="results-item__btn-container">
-            <AddToPlaylist movieID={imdbID} />
-            <Link to={`/movie/details/${imdbID}`}>
-              <button className="results-item__btn-details">+ DETAILS</button>
-            </Link>
+
+        <div className="results-item__btn-container">
+          <AddToPlaylist movieID={imdbID} />
+          <Link
+            className="results-item__link-details"
+            to={`/movie/details/${imdbID}`}
+          >
+            <button className="results-item__btn-details">+ DETAILS</button>
+          </Link>
+        </div>
+        <div className="results-item__movieTitle-wrapper">
+          <div className="results-item__movie-title results-item__tooltip">
+            {title}
+            <div className="results-item__tooltip-top">
+              <p className="results-item__tooltip-text">{title}</p>
+            </div>
           </div>
         </div>
-        <p className="results-item__movie-title">{title}</p>
       </div>
     );
   }

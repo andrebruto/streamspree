@@ -43,7 +43,7 @@
   border-radius: 20px;
   box-shadow: 4px 4px 50px rgba($color: #ffffff, $alpha: 0.3);
   position: absolute;
-  z-index: 9999999999;
+  z-index: 99999;
   -webkit-animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
   &__title-container {
@@ -64,6 +64,7 @@
     color: $dark-carbon;
   }
   &__container {
+    position: relative;
     justify-content: center;
     align-items: center;
     height: 70%;
@@ -126,7 +127,7 @@
 
 @include tablet {
   .search-results {
-    height: 45rem;
+    height: 75%;
     width: 75%;
     margin-top: 11rem;
     margin-left: 6rem;
@@ -179,7 +180,7 @@
 
 @include desktop {
   .search-results {
-    height: 78%;
+    height: 75%;
     width: 75%;
     margin-left: 8rem;
     margin-right: 8rem;
@@ -206,9 +207,9 @@
 
 @include wide {
   .search-results {
-    height: 38rem;
+    height: 40rem;
     width: 78%;
-    margin-top: 7.5rem;
+    // margin-top: 7.5rem;
     margin-left: 10rem;
     margin-right: 10rem;
 

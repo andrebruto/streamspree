@@ -4,12 +4,18 @@
   align-items: center;
   margin-bottom: 3rem;
   width: 100%;
+  position: relative;
   &__poster {
     height: 380px;
     border-radius: 10px;
     &:hover {
       box-shadow: 2px 2px 8px black;
+      transform: scale(1.02);
+      transition: $transition-500;
     }
+  }
+  &__movieTitle-wrapper {
+    position: relative;
   }
   &__movie-title {
     font-family: "Poppins-ExtraBold";
@@ -17,18 +23,64 @@
     flex-wrap: wrap;
     color: $dark-carbon;
     text-align: center;
-    margin-top: 1.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 1rem;
     padding-bottom: 2rem;
     border-bottom: 2px solid lightgrey;
-    width: 80%;
+    width: 250px;
   }
-
+  &__tooltip {
+    display: inline-block;
+    text-align: center;
+  }
+  &__tooltip &__tooltip-top {
+    width: 200px;
+    bottom: 20%;
+    left: 50%;
+    transform: translate(-50%, 70%);
+    padding: 10px 20px;
+    color: $off-white;
+    background-color: $dark-carbon;
+    border-radius: 8px;
+    z-index: 9999999;
+    box-sizing: border-box;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 99999999999;
+    position: absolute;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 98%;
+      left: 50%;
+      transform: translate(-50%);
+      width: 0;
+      height: 0;
+      border-bottom: solid 8px $dark-carbon;
+      border-left: solid 8px transparent;
+      border-right: solid 8px transparent;
+    }
+  }
+  &__tooltip:hover &__tooltip-top {
+    // display: block;
+    display: flex;
+    justify-content: center;
+  }
+  &__tooltip-text {
+    white-space: initial;
+    font-family: "IBMPlexSans-Bold";
+    font-size: 0.9rem;
+  }
   &__btn-container {
-    @include flex-row;
+    @include flex-column;
     justify-content: space-between;
     align-items: center;
-    margin-top: 1rem;
+    position: relative;
+    height: 5rem;
     width: 250px;
+    margin-top: 1rem;
   }
   &__btn-playlist {
     border: none;
@@ -38,20 +90,41 @@
     // border: 1px solid $carbon;
     font-family: "IBMPlexSans-Bold";
     border-radius: 20px;
-    width: 110px;
+    width: 90%;
     height: 2.2rem;
     &--add {
       background-color: $sky;
       color: $dark-carbon;
-      width: 110px;
+      width: 90%;
       height: 2.2rem;
+      &:hover {
+        box-shadow: 2px 2px 4px rgba($color: $dark-carbon, $alpha: 0.5);
+        font-family: "Poppins-ExtraBold";
+        font-size: 0.9rem;
+        letter-spacing: 0;
+        transition: $transition-500;
+        cursor: pointer;
+        background-color: saturate($color: $sky, $amount: 20%);
+      }
     }
     &--remove {
       background-color: $medium-carbon;
       color: $off-white;
-      width: 110px;
+      width: 90%;
       height: 2.2rem;
+      &:hover {
+        box-shadow: 2px 2px 4px rgba($color: $dark-carbon, $alpha: 0.5);
+        font-family: "Poppins-ExtraBold";
+        font-size: 0.9rem;
+        letter-spacing: 0;
+        transition: $transition-500;
+        cursor: pointer;
+        background-color: $dark-carbon;
+      }
     }
+  }
+  &__link-details {
+    width: 90%;
   }
   &__btn-details {
     border: none;
@@ -60,8 +133,17 @@
     color: $off-white;
     font-family: "IBMPlexSans-Bold";
     border-radius: 20px;
-    width: 110px;
+    width: 100%;
     height: 2.2rem;
+    &:hover {
+      box-shadow: 2px 2px 4px rgba($color: $dark-carbon, $alpha: 0.5);
+      font-family: "Poppins-ExtraBold";
+      font-size: 0.9rem;
+      letter-spacing: 0;
+      transition: $transition-500;
+      cursor: pointer;
+      background-color: $dark-watermelon;
+    }
   }
 }
 
@@ -96,8 +178,11 @@
       margin-top: 1rem;
     }
     &__btn-container {
+      @include flex-row;
       width: 240px;
+      height: auto;
     }
+
     &__btn-playlist {
       border: none;
       padding: 0.5rem 1rem;
@@ -120,6 +205,9 @@
         height: 2.2rem;
       }
     }
+    &__link-details {
+      width: 110px;
+    }
     &__btn-details {
       border: none;
       padding: 0.5rem 1rem;
@@ -136,16 +224,8 @@
 @include desktop {
   .results-item {
     margin: 0 3rem;
-    &__btn-playlist {
-      &--add {
-        width: 110px;
-      }
-      &--remove {
-        width: 110px;
-      }
-    }
-    &__btn-details {
-      width: 110px;
+    &__poster {
+      height: 350px;
     }
   }
 }

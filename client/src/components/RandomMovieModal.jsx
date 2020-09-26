@@ -23,12 +23,13 @@ const RandomMovieModal = ({ randomMovie }) => {
           onClick={refreshPage}
         />
         <h1 className="rm-modal__title">CHECK THIS ONE OUT!</h1>
-        {poster === "N/A" ? (
-          <img className="rm-modal__poster" src={PosterNotAvailable} />
-        ) : (
-          <img className="rm-modal__poster" src={poster} />
-        )}
-
+        <Link to={`/movie/details/${imdbID}`}>
+          {poster === "N/A" ? (
+            <img className="rm-modal__poster" src={PosterNotAvailable} />
+          ) : (
+            <img className="rm-modal__poster" src={poster} />
+          )}
+        </Link>
         <p className="rm-modal__movie-title">{title}</p>
         <p className="rm-modal__year">{year}</p>
         <div className="rm-modal__btn-container">

@@ -32,35 +32,7 @@
     align-items: center;
     margin-top: 1rem;
     height: 90px;
-    width: 180px;
-  }
-  &__btn-remove {
-    font-family: "IBMPlexSans-Bold";
-    width: 180px;
-    border: none;
-    padding: 0.5rem 1rem;
-    background-color: $watermelon;
-    color: $off-white;
-    border-radius: 20px;
-  }
-  &__btn-details {
-    font-family: "IBMPlexSans-Bold";
-    width: 180px;
-    border: none;
-    padding: 0.5rem 1rem;
-    background-color: $sky;
-    color: $dark-carbon;
-    border-radius: 20px;
-    margin: 1rem 0;
-  }
-  &__menu {
-    font-family: "IBMPlexSans-Bold";
-    width: 180px;
-    border: none;
-    padding: 0.5rem 1rem;
-    color: $white;
-    background-color: $carbon;
-    border-radius: 20px;
+    width: 90%;
   }
 }
 

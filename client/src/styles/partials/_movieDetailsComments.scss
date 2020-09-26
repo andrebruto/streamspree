@@ -4,7 +4,7 @@
   background-color: $white;
   padding: 3rem 0;
   position: absolute;
-  top: 165%;
+  top: 175%;
   width: 100%;
   box-shadow: -4px -4px 12px rgba($color: #000000, $alpha: 0.2);
   @include flex-column;
@@ -57,6 +57,17 @@
     color: $off-white;
     background-color: $watermelon;
     border: none;
+    letter-spacing: 0.2rem;
+    &:hover {
+      box-shadow: 2px 2px 4px rgba($color: $dark-carbon, $alpha: 0.5);
+      background-color: $dark-watermelon;
+      // color: $dark-carbon;
+      font-family: "Poppins-ExtraBold";
+      font-size: 0.9rem;
+      letter-spacing: 0;
+      transition: $transition-900;
+      cursor: pointer;
+    }
   }
   &__comment {
     margin-top: 2rem;
@@ -96,7 +107,7 @@
 
 @include tablet {
   .details-comments {
-    top: 145%;
+    top: 155%;
     &__title {
       text-align: left;
       margin-left: 1.5rem;
@@ -184,5 +195,10 @@
 @include wide {
   .details-comments {
     top: 105%;
+    &__btn {
+      margin-right: 4rem;
+      height: 2.8rem;
+      width: 15%;
+    }
   }
 }

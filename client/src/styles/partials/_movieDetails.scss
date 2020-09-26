@@ -30,6 +30,7 @@
     justify-content: space-between;
     align-items: center;
     height: 90px;
+    width: 250px;
   }
   &__share {
     border: none;
@@ -38,7 +39,16 @@
     color: $off-white;
     font-family: "IBMPlexSans-Bold";
     border-radius: 20px;
-    width: 240px;
+    width: 90%;
+    &:hover {
+      box-shadow: 2px 2px 4px rgba($color: $dark-carbon, $alpha: 0.5);
+      font-family: "Poppins-ExtraBold";
+      font-size: 0.9rem;
+      letter-spacing: 0;
+      transition: $transition-500;
+      cursor: pointer;
+      background-color: $dark-watermelon;
+    }
   }
   &__info {
     @include flex-column;

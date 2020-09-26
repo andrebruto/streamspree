@@ -28,14 +28,16 @@ class PlaylistItem extends Component {
     if (this.state.movieDetails) {
       return (
         <div className="playlist-item">
-          {this.state.movieDetails.poster === "N/A" ? (
-            <img className="playlist-item__poster" src={PosterNotAvailable} />
-          ) : (
-            <img
-              className="playlist-item__poster"
-              src={this.state.movieDetails.poster}
-            />
-          )}
+          <Link to={`/movie/details/${this.props.movieID}`}>
+            {this.state.movieDetails.poster === "N/A" ? (
+              <img className="playlist-item__poster" src={PosterNotAvailable} />
+            ) : (
+              <img
+                className="playlist-item__poster"
+                src={this.state.movieDetails.poster}
+              />
+            )}
+          </Link>
 
           <p className="playlist-item__movie-title">
             {this.state.movieDetails.title}
@@ -49,7 +51,10 @@ class PlaylistItem extends Component {
               movieID={this.props.movieID}
               onDelete={this.props.onRemoveFromPlaylist}
             />
-            <Link to={`/movie/details/${this.props.movieID}`}>
+            <Link
+              className="results-item__link-details"
+              to={`/movie/details/${this.props.movieID}`}
+            >
               <button className="results-item__btn-details">+ DETAILS</button>
             </Link>
           </div>

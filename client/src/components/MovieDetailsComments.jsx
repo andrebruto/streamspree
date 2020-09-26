@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 
 const MovieDetailsComments = ({ comments, postComment }) => {
   return (
@@ -21,6 +22,8 @@ const MovieDetailsComments = ({ comments, postComment }) => {
         </button>
       </form>
       {comments.map((comment) => {
+        const unixDate = new Date(comment.created_at);
+        const timeFromNow = moment(unixDate).fromNow();
         return (
           <div key={comment.id} className="details-comments__comment">
             <div className="details-comments__comment-container">
@@ -29,9 +32,7 @@ const MovieDetailsComments = ({ comments, postComment }) => {
                   {comment.name}
                 </h5>
               </div>
-              <p className="details-comments__comment-date">
-                {comment.created_at}
-              </p>
+              <p className="details-comments__comment-date">{timeFromNow}</p>
             </div>
             <p className="details-comments__comment-text">{comment.comment}</p>
           </div>
