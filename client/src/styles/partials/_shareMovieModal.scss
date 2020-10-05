@@ -61,8 +61,20 @@
     color: $off-white;
     font-family: "IBMPlexSans-Bold";
     border-radius: 20px;
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
     width: 240px;
     height: 2.5rem;
+    &:hover {
+      box-shadow: 2px 2px 4px rgba($color: $dark-carbon, $alpha: 0.5);
+      background-color: $sky;
+      color: $dark-carbon;
+      font-family: "Poppins-ExtraBold";
+      font-size: 1.1rem;
+      letter-spacing: 0;
+      transition: $transition-500;
+      cursor: pointer;
+    }
   }
 }
 
@@ -152,7 +164,7 @@
       margin: 0;
       height: 3rem;
       width: 20rem;
-      font-size: 1rem;
+      // font-size: 1rem;
       border-radius: 30px;
     }
   }

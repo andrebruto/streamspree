@@ -94,6 +94,13 @@
     filter: invert(51%) sepia(0%) saturate(1320%) hue-rotate(160deg)
       brightness(95%) contrast(90%);
   }
+  &__top-container {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 1rem;
+  }
   &__title {
     font-family: "Poppins-ExtraBold";
     font-size: 1.1rem;
@@ -172,6 +179,13 @@
       padding-top: 1rem;
       @include flex-column;
       align-items: center;
+    }
+    &__top-container {
+      justify-content: flex-end;
+      margin-top: 0.5rem;
+    }
+    &__playlist-btn {
+      margin-right: 1rem;
     }
     &__title {
       font-size: 1.2rem;

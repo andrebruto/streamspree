@@ -97,12 +97,15 @@
 }
 @include wide {
   .playlist {
+    align-items: flex-start;
     &__title-container {
       margin-left: 10rem;
       margin-right: 10rem;
     }
     &__container {
-      width: 78%;
+      @include flex-row;
+      justify-content: flex-start;
+      width: 85%;
       margin-left: 10rem;
       margin-right: 10rem;
     }

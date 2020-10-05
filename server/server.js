@@ -63,7 +63,6 @@ const getRandomMovie = async () => {
       "Joy",
       "Glass",
       "Drink",
-      "Glow",
       "Bad",
       "Good",
       "Mind",
@@ -186,7 +185,7 @@ app.get("/movies/:id/details", async (req, res) => {
 
 app.get("/movies/movie/random", async (req, res) => {
   const randomResult = await getRandomMovie();
-  console.log("getRandom01", randomResult);
+  // console.log("getRandom01", randomResult);
 
   if (!randomResult) {
     res.status(404).json({ message: `Movie not found` });

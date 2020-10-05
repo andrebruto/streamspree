@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import AddToPlaylist from "../components/AddToPlaylist";
 import CloseIcon from "../assets/icons/times-solid.svg";
 
-const RandomMovieModal = ({ randomMovie }) => {
+const RandomMovieModal = ({ randomMovie, randomSearch }) => {
   const { title, year, poster, imdbID } = randomMovie;
-  // console.log(randomMovie);
+
   const refreshPage = () => window.location.reload();
 
   const navRef = React.useRef(null);
@@ -16,13 +16,22 @@ const RandomMovieModal = ({ randomMovie }) => {
       className={!randomMovie.title ? `search-modal` : `search-modal__visible`}
     >
       <div className={randomMovie.title ? "rm-modal--visible" : "rm-modal"}>
-        <img
-          className="share-movie__close-btn"
-          src={CloseIcon}
-          alt="close icon"
-          onClick={refreshPage}
-        />
+        <div className="rm-modal__top-container">
+          <Link to="/playlist/1">
+            <div className="search-results__playlist-btn rm-modal__playlist-btn">
+              GO TO PLAYLIST
+            </div>
+          </Link>
+          <img
+            className="share-movie__close-btn"
+            src={CloseIcon}
+            alt="close icon"
+            onClick={refreshPage}
+          />
+        </div>
+
         <h1 className="rm-modal__title">CHECK THIS ONE OUT!</h1>
+
         <Link to={`/movie/details/${imdbID}`}>
           {poster === "N/A" ? (
             <img className="rm-modal__poster" src={PosterNotAvailable} />
@@ -38,6 +47,13 @@ const RandomMovieModal = ({ randomMovie }) => {
             <button className="results-item__btn-details">+ DETAILS</button>
           </Link>
         </div>
+        {/* <button
+          className="random-movie__btn"
+          name="randomMovie"
+          onClick={randomSearch && console.log(randomMovie)}
+        >
+          SEARCH AGAIN
+        </button> */}
       </div>
     </div>
   );

@@ -401,8 +401,8 @@
 .header__btn:hover {
   -webkit-box-shadow: 6px 6px 12px black;
           box-shadow: 6px 6px 12px black;
-  background-color: #c41619;
-  color: #fafafa;
+  background-color: #caebf2;
+  color: #545050;
   font-family: "Poppins-ExtraBold";
   font-size: 0.9rem;
   letter-spacing: 0;
@@ -2008,8 +2008,23 @@
   color: #fbfdff;
   font-family: "IBMPlexSans-Bold";
   border-radius: 20px;
+  font-size: 1rem;
+  letter-spacing: 0.3rem;
   width: 240px;
   height: 2.5rem;
+}
+
+.share-movie__btn:hover {
+  -webkit-box-shadow: 2px 2px 4px rgba(84, 80, 80, 0.5);
+          box-shadow: 2px 2px 4px rgba(84, 80, 80, 0.5);
+  background-color: #caebf2;
+  color: #545050;
+  font-family: "Poppins-ExtraBold";
+  font-size: 1.1rem;
+  letter-spacing: 0;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
@@ -2119,7 +2134,6 @@
     margin: 0;
     height: 3rem;
     width: 20rem;
-    font-size: 1rem;
     border-radius: 30px;
   }
 }
@@ -2284,12 +2298,27 @@
 }
 
 @media screen and (min-width: 1280px) {
+  .playlist {
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
   .playlist__title-container {
     margin-left: 10rem;
     margin-right: 10rem;
   }
   .playlist__container {
-    width: 78%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    width: 85%;
     margin-left: 10rem;
     margin-right: 10rem;
   }
@@ -2404,6 +2433,9 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .playlist-item {
+    margin-right: 4rem;
+  }
   .playlist-item__container {
     width: 100%;
   }
@@ -2702,6 +2734,24 @@
           filter: invert(51%) sepia(0%) saturate(1320%) hue-rotate(160deg) brightness(95%) contrast(90%);
 }
 
+.rm-modal__top-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  margin-bottom: 1rem;
+}
+
 .rm-modal__title {
   font-family: "Poppins-ExtraBold";
   font-size: 1.1rem;
@@ -2811,6 +2861,15 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+  .rm-modal__top-container {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    margin-top: 0.5rem;
+  }
+  .rm-modal__playlist-btn {
+    margin-right: 1rem;
   }
   .rm-modal__title {
     font-size: 1.2rem;
